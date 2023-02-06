@@ -1,14 +1,17 @@
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
-export const signInWithGoogle = async () => {
+export const signInWithGoogle = () => {
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
-  
-  try {
-    const res = await signInWithPopup(auth, provider);
-    const user = res.user;
-    console.log(user);
-  } catch (error) {
-    console.log(error);
-  }
+
+  provider.setCustomParameters({ prompt: "select_account" });
+
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      const user = result.user;
+      console.log(user);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
