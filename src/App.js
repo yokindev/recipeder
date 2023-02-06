@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Login } from "./componets/Login";
+import { Login } from "./components/Login";
 import { getAuth } from "firebase/auth";
-import { Home } from "./componets/Home";
+import { Home } from "./components/Home";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -12,8 +12,6 @@ function App() {
       setUser(user);
     });
   }, [auth]);
-
-  console.log(user);
 
   return <div>{user ? <Home user={user} /> : <Login />}</div>;
 }
