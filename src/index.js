@@ -1,11 +1,19 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { FirebaseAppProvider } from "reactfire";
+import { firebaseConfig } from "./firebaseConfig";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+root.render(
+  <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+    <Suspense fallback={<p>Loading ...</p>}>
+      <App />
+    </Suspense>
+  </FirebaseAppProvider>
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
