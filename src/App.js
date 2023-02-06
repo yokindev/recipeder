@@ -1,7 +1,9 @@
+import { Login } from "./componets/Login";
+
 function App() {
   return (
     <div>
-      <h1>Hello world!</h1>
+      <Login />
     </div>
   );
 }
