@@ -1,4 +1,4 @@
-export const firebaseConfig = {
+export const firebase = {
     apiKey: "AIzaSyBjDo_tUWT7yivP33rFLT8kQWaMZ0yjQWc",
     authDomain: "recipeder.firebaseapp.com",
     projectId: "recipeder",
