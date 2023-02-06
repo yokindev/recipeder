@@ -1,6 +1,6 @@
 import { signInWithGoogle } from "../services/google";
 
-export const login = () => {
+export const Login = () => {
   return (
     <div>
       <button className="button" onClick={signInWithGoogle}>
