@@ -1,4 +1,4 @@
-import { signInWithGoogle } from "../services/google";
+import { signInWithGoogle } from "../../services/google";
 
 export const Login = () => {
   return (

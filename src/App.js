@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Login } from "./components/Login";
+import { Login } from "./components/Login/Login";
 import { getAuth } from "firebase/auth";
 import { Home } from "./components/Home";
 import useFetch from "./hooks/useFetch";
