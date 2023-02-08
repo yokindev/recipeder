@@ -18,7 +18,7 @@ function App() {
     `${process.env.REACT_APP_API_URL}?type=public&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}&diet=balanced&random=true`
   );
 
-  return <div>{user ? <Home user={user} recipes={recipes}/> : <Login />}</div>;
+  return <>{user ? <Home user={user} recipes={recipes} /> : <Login />}</>;
 }
 
 export default App;

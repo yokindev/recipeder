@@ -1,4 +1,5 @@
 import { signInWithGoogle } from "../../services/google";
+import ImageLogo from '../../assets/images/chef-hat.png'
 
 export const Login = () => {
   return (
