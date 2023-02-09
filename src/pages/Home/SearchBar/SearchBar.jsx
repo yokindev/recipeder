@@ -17,13 +17,13 @@ export const SearchBar = () => {
 
   const handleKey = (e) => {
     if (e.key === "Enter" && target) {
-      navigate("/reciperesults");
+      navigate("/results");
     }
   };
 
   const search = () => {
     if (target) {
-      navigate("/reciperesults");
+      navigate("/results");
     }
   };
 
