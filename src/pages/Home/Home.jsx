@@ -1,12 +1,15 @@
 import { NavBar } from "./NavBar/NavBar";
 
-export const Home = ({ user, recipes }) => {
-  const { result } = recipes;
+export const Home = ({ recipes }) => {
+  // const { result } = recipes;
 
-  if (result) {
-    const { hits } = result;
-    console.log(hits);
+  // if (result) {
+  //   const { hits } = result;
+  //   console.log(hits);
 
-    return <NavBar user={user} />;
-  }
+  return (
+    <>
+      <NavBar />
+    </>
+  );
 };

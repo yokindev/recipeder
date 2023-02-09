@@ -1,13 +1,30 @@
 import { getAuth } from "firebase/auth";
+import {
+  NavBarContainer,
+  NavBarWrapper,
+  NavBarLogo,
+  NavBarLogoImage,
+  NavBarLogoTitle,
+  NavBarButton,
+  NavBarButtonIcon,
+} from "./NavBar.styles";
+import ImageLogo from "../../../assets/images/chef-hat.png";
+import IconLogout from '../../../assets/icons/power.svg'
 
-export const NavBar = ({user}) => {
+export const NavBar = () => {
   const auth = getAuth();
 
   return (
-    <>
-      <h1>{user.displayName}</h1>
-      <img src={user.photoURL} alt="profile-pic" referrerPolicy="no-referrer" />
-      <button onClick={() => auth.signOut()}>Sign out</button>
-    </>
+    <NavBarContainer>
+      <NavBarWrapper>
+        <NavBarLogo>
+          <NavBarLogoImage src={ImageLogo} />
+          <NavBarLogoTitle>RECIPIDER</NavBarLogoTitle>
+        </NavBarLogo>
+        <NavBarButton onClick={() => auth.signOut()}>
+          <NavBarButtonIcon src={IconLogout}/>
+        </NavBarButton>
+      </NavBarWrapper>
+    </NavBarContainer>
   );
 };
