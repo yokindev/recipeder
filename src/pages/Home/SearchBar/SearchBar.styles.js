@@ -4,7 +4,8 @@ export const SearchBarContainer = styled.div`
   display: flex;
   align-items: center;
   height: 100px;
-  padding: 0px 20px 0px 20px;
+  padding: 20px;
+  background-color: white;
 `;
 
 export const SearchBarWrapper = styled.div`

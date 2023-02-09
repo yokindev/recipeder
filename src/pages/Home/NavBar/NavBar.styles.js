@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const NavBarContainer = styled.div`
-  width: 100%;
-  background-color: #52B69A;
+  background-color: #52b69a;
 `;
 
 export const NavBarWrapper = styled.nav`

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-export const HomeContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+export const TopBar = styled.div`
+  width: 100%;
+  position: sticky;
+  top: 0px;
 `;
+

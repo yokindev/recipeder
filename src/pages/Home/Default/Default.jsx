@@ -1,4 +1,5 @@
 import useFetch from "../../../hooks/useFetch";
+import { Card, DefaultContainer, Image, Name } from "./Default.styles";
 
 export const Default = () => {
   const defaultRecipes = useFetch(
@@ -9,6 +10,18 @@ export const Default = () => {
 
   if (result) {
     const { hits } = result;
-    return hits.map((option, index) => console.log(option.recipe.label));
+    console.log(hits)
+    return (
+        <DefaultContainer>
+            {hits.map((option, index) => (
+                <Card key={index}>
+                    <Image src={option.recipe.image} alt="image"/>
+                    <Name>{option.recipe.label}</Name>
+                </Card>
+            ))}
+        </DefaultContainer>
+    ) 
+    
+    
   }
 };
