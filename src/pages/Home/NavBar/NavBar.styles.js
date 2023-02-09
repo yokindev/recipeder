@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const NavBarContainer = styled.div`
   width: 100%;
-  background-color: blue;
+  background-color: #52B69A;
 `;
 
 export const NavBarWrapper = styled.nav`
@@ -24,7 +24,7 @@ export const NavBarLogoImage = styled.img`
 
 export const NavBarLogoTitle = styled.h1`
   margin: 0;
-  font-weight: 700;
+  font-weight: 900;
   color: white;
 `;
 
