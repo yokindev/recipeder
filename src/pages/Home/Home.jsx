@@ -1,4 +1,5 @@
 import { getAuth } from "firebase/auth";
+import { HomeContainer } from "./Home.styles";
 
 export const Home = ({ user, recipes }) => {
   const { result } = recipes;
@@ -9,7 +10,7 @@ export const Home = ({ user, recipes }) => {
     console.log(hits);
 
     return (
-      <div>
+      <HomeContainer>
         <h1>Hello, {user.displayName}</h1>
         <img
           src={user.photoURL}
@@ -17,7 +18,7 @@ export const Home = ({ user, recipes }) => {
           referrerPolicy="no-referrer"
         />
         <button onClick={() => auth.signOut()}>Sign out</button>
-      </div>
+      </HomeContainer>
     );
   }
 };
