@@ -35,5 +35,5 @@ export const NavBarButton = styled.button`
 `;
 
 export const NavBarButtonIcon = styled.img`
-  width: 30px;
+  width: 25px;
 `;
