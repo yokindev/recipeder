@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { Login } from "./components/Login/Login";
-import { getAuth } from "firebase/auth";
-import { Home } from "./components/Home";
+import { Home } from "./pages/Home/Home";
+import { Login } from "./pages/Login/Login";
 import useFetch from "./hooks/useFetch";
+import { useEffect, useState } from "react";
+import { getAuth } from "firebase/auth";
 
 function App() {
   const [user, setUser] = useState(null);

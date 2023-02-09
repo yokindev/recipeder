@@ -1,12 +1,10 @@
 import { getAuth } from "firebase/auth";
 
 export const Home = ({ user, recipes }) => {
-  const auth = getAuth();
-
   const { result } = recipes;
-  console.log(result);
 
   if (result) {
+    const auth = getAuth();
     const { hits } = result;
     console.log(hits);
 
