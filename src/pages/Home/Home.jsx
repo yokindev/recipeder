@@ -1,4 +1,5 @@
 import { NavBar } from "./NavBar/NavBar";
+import { SearchBar } from "./SearchBar/SearchBar";
 
 export const Home = ({ recipes }) => {
   // const { result } = recipes;
@@ -10,6 +11,7 @@ export const Home = ({ recipes }) => {
   return (
     <>
       <NavBar />
+      <SearchBar />
     </>
   );
 };
