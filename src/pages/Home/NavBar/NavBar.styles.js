@@ -14,6 +14,7 @@ export const NavBarWrapper = styled.nav`
 export const NavBarLogo = styled.div`
   display: flex;
   align-items: center;
+  cursor: pointer;
 `;
 
 export const NavBarLogoImage = styled.img`

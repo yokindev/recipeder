@@ -5,7 +5,7 @@ import {
   SearchBarInput,
   SearchBarWrapper,
 } from "./SearchBar.styles";
-import IconSearch from "../../../assets/icons/search.svg";
+import IconSearch from "../../../assets/svg/search.svg";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
