@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { HomeFooter, HomeFooterBadge, HomeTopBar } from "./Home.styles";
-import Badge from '../../assets/svg/badge.svg'
+import { HomeTopBar } from "./Home.styles";
 import { NavBar } from "./NavBar/NavBar";
 import { SearchBar } from "./SearchBar/SearchBar";
 import { Default } from "./Default/Default";
@@ -20,10 +19,6 @@ export const Home = () => {
           <Route path="/home" element={<Default />} />
           <Route path="/results" element={<RecipeResults />} />
         </Routes>
-
-        <HomeFooter>
-          <HomeFooterBadge src={Badge}/>
-        </HomeFooter>
       </BrowserRouter>
     </>
   );
