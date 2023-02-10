@@ -18,7 +18,7 @@ export const RecipeCard = styled.div`
 `;
 
 export const RecipeImage = styled.img`
-  border-radius: 10px;
+  border-radius: 20px;
 `;
 
 export const RecipeName = styled.span`

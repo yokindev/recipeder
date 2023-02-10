@@ -1,10 +1,8 @@
 import { getAuth } from "firebase/auth";
 import {
   NavBarContainer,
-  NavBarWrapper,
   NavBarLogo,
   NavBarLogoImage,
-  NavBarLogoTitle,
   NavBarButton,
   NavBarButtonIcon,
 } from "./NavBar.styles";
@@ -18,15 +16,12 @@ export const NavBar = () => {
 
   return (
     <NavBarContainer>
-      <NavBarWrapper>
-        <NavBarLogo onClick={() => navigate('/')}>
-          <NavBarLogoImage src={ImageLogo} />
-          <NavBarLogoTitle>RECIPIDER</NavBarLogoTitle>
-        </NavBarLogo>
-        <NavBarButton onClick={() => auth.signOut()}>
-          <NavBarButtonIcon src={IconLogout} />
-        </NavBarButton>
-      </NavBarWrapper>
+      <NavBarLogo onClick={() => navigate("/")}>
+        <NavBarLogoImage src={ImageLogo} />
+      </NavBarLogo>
+      <NavBarButton onClick={() => auth.signOut()}>
+        <NavBarButtonIcon src={IconLogout} />
+      </NavBarButton>
     </NavBarContainer>
   );
 };
