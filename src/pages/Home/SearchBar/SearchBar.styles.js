@@ -9,7 +9,7 @@ export const SearchBarContainer = styled.div`
   background-color: white;
 `;
 
-export const SearchBarWrapper = styled.div`
+export const SearchBarForm = styled.form`
   display: flex;
   align-items: center;
   width: 100%;

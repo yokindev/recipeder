@@ -6,11 +6,9 @@ import {
   RecipesContainer,
 } from "../../../styles/Recipes.styles";
 
-export const RecipeResults = () => {
-  const target = localStorage.getItem("Target");
-
+export const RecipeResults = ({ target }) => {
   const recipes = useFetch(
-    `${process.env.REACT_APP_API_URL}?type=public&q=${target}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}&random=true`
+    `${process.env.REACT_APP_API_URL}?type=public&q=${target}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`
   );
 
   const { result } = recipes;

@@ -3,25 +3,17 @@ import {
   SearchBarContainer,
   SearchBarIcon,
   SearchBarInput,
-  SearchBarWrapper,
+  SearchBarForm,
 } from "./SearchBar.styles";
 import IconSearch from "../../../assets/svg/search.svg";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
-export const SearchBar = () => {
+export const SearchBar = ({ target, setTarget }) => {
   const navigate = useNavigate();
 
-  const [target, setTarget] = useState("");
-  localStorage.setItem("Target", target);
+  const search = (e) => {
+    e.preventDefault();
 
-  const handleKey = (e) => {
-    if (e.key === "Enter" && target) {
-      navigate("/results");
-    }
-  };
-
-  const search = () => {
     if (target) {
       navigate("/results");
     }
@@ -29,17 +21,17 @@ export const SearchBar = () => {
 
   return (
     <SearchBarContainer>
-      <SearchBarWrapper>
+      <SearchBarForm onSubmit={search}>
         <SearchBarInput
           type="text"
           placeholder="Let's find out"
-          onKeyDown={handleKey}
+          value={target}
           onChange={(e) => setTarget(e.target.value)}
         />
-        <SearchBarButton onClick={search}>
+        <SearchBarButton type="submit">
           <SearchBarIcon src={IconSearch} />
         </SearchBarButton>
-      </SearchBarWrapper>
+      </SearchBarForm>
     </SearchBarContainer>
   );
 };
