@@ -6,27 +6,31 @@ import {
   SearchBarForm,
 } from "./SearchBar.styles";
 import IconSearch from "../../../assets/svg/search.svg";
-import { useNavigate } from "react-router-dom";
 
-export const SearchBar = ({ target, setTarget }) => {
-  const navigate = useNavigate();
+import { useState } from "react";
+import { useFetch } from "../../../hooks/useFetch";
 
-  const search = (e) => {
+export const SearchBar = () => {
+  const [name, setName] = useState("");
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (target) {
-      navigate("/results");
+    if (name) {
+      search();
     }
   };
 
+  const search = useFetch(
+    `${process.env.REACT_APP_API_URL}?type=public&q=${name}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`
+  );
+
   return (
     <SearchBarContainer>
-      <SearchBarForm onSubmit={search}>
+      <SearchBarForm onSubmit={handleSubmit}>
         <SearchBarInput
           type="text"
           placeholder="Let's find out"
-          value={target}
-          onChange={(e) => setTarget(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
         />
         <SearchBarButton type="submit">
           <SearchBarIcon src={IconSearch} />
