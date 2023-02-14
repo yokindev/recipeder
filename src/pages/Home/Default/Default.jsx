@@ -1,4 +1,4 @@
-import { useFetch } from "../../../hooks/useFetch";
+import { useState } from "react";
 import {
   RecipeCard,
   RecipeImage,
@@ -7,13 +7,26 @@ import {
 } from "../../../styles/Recipes.styles";
 
 export const Default = () => {
-  const recipes = useFetch(
-    `${process.env.REACT_APP_API_URL}?type=public&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}&diet=balanced&random=true`
-  );
+  const [data, setData] = useState(null);
+  const url = `${process.env.REACT_APP_API_URL}?type=public&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}&diet=balanced&random=true`;
 
-  const { data } = recipes;
+  const fetchData = async () => {
+    try {
+      const res = await fetch(url);
+      const json = await res.json();
+      setData(json.hits);
+      // setLoading(false);
+    } catch (error) {
+      // setLoading(false);
+      console.log(error);
+    }
+    return { data };
+  };
 
   if (data) {
+    fetchData();
+    console.log(data);
+
     return (
       <RecipesContainer>
         {data.map((option, index) => (
