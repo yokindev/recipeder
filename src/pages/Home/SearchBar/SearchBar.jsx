@@ -29,7 +29,10 @@ export const SearchBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    search();
+    if (name) {
+      search();
+      setName('')
+    }
   };
 
   console.log(data);
