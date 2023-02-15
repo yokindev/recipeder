@@ -6,36 +6,20 @@ import {
   SearchBarForm,
 } from "./SearchBar.styles";
 import IconSearch from "../../../assets/svg/search.svg";
-
 import { useState } from "react";
 
-export const SearchBar = () => {
-  const [name, setName] = useState("");
-  const [data, setData] = useState(null);
-  const url = `${process.env.REACT_APP_API_URL}?type=public&q=${name}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`;
-
-  const search = async () => {
-    try {
-      const res = await fetch(url);
-      const json = await res.json();
-      setData(json.hits);
-      // setLoading(false);
-    } catch (error) {
-      // setLoading(false);
-      console.log(error);
-    }
-    return { data };
-  };
+export const SearchBar = ({ setUrl }) => {
+  const [query, setQuery] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (name) {
-      search();
-      setName('')
+    if (query) {
+      setUrl(`${process.env.REACT_APP_API_URL}?type=public&q=${query}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`);
+      setQuery('')
     }
   };
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <SearchBarContainer>
@@ -43,8 +27,8 @@ export const SearchBar = () => {
         <SearchBarInput
           type="text"
           placeholder="Let's find out"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
         />
         <SearchBarButton type="submit">
           <SearchBarIcon src={IconSearch} />
