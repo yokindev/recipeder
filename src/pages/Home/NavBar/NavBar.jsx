@@ -38,7 +38,7 @@ export const NavBar = ({ setUrl }) => {
         ))}
       </NavBarLinks>
       <NavBarButton onClick={() => auth.signOut()}>
-        <NavBarButtonIcon src={IconLogout} />
+        <NavBarButtonIcon src={IconLogout} alt='IconLogout'/>
       </NavBarButton>
     </NavBarContainer>
   );

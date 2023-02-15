@@ -32,7 +32,7 @@ export const Recipes = ({ url }) => {
       <RecipesContainer>
         {data.map((option, index) => (
           <RecipeCard key={index}>
-            <RecipeImage src={option.recipe.image} alt="image" />
+            <RecipeImage src={option.recipe.image} alt="ImageRecipe" />
             <RecipeName>{option.recipe.label}</RecipeName>
           </RecipeCard>
         ))}

@@ -31,7 +31,7 @@ export const SearchBar = ({ setUrl }) => {
           onChange={(e) => setQuery(e.target.value)}
         />
         <SearchBarButton type="submit">
-          <SearchBarIcon src={IconSearch} />
+          <SearchBarIcon src={IconSearch} alt='IconSearch'/>
         </SearchBarButton>
       </SearchBarForm>
     </SearchBarContainer>
