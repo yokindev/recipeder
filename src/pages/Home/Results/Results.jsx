@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   ResultCard,
   ResultImage,
@@ -7,8 +8,10 @@ import {
   ResultsContainer,
 } from "./Results.styles";
 
-export const Results = ({ url }) => {
+export const Results = ({ url, setId }) => {
   const [data, setData] = useState(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,7 +34,13 @@ export const Results = ({ url }) => {
     return (
       <ResultsContainer>
         {data.map((option, index) => (
-          <ResultCard key={index}>
+          <ResultCard
+            key={index}
+            onClick={() => {
+              setId(option._links.self.href);
+              navigate("/recipe");
+            }}
+          >
             <ResultImage src={option.recipe.image} alt="ImageRecipe" />
             <ResultName>{option.recipe.label}</ResultName>
           </ResultCard>

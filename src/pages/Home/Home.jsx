@@ -12,6 +12,8 @@ export const Home = () => {
   );
   const [id, setId] = useState("");
 
+  console.log(id);
+
   return (
     <>
       <BrowserRouter>

@@ -15,6 +15,7 @@ export const ResultCard = styled.div`
   gap: 15px;
   max-width: 300px;
   width: 100%;
+  cursor: pointer;
 `;
 
 export const ResultImage = styled.img`

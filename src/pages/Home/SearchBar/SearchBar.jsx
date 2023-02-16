@@ -14,12 +14,12 @@ export const SearchBar = ({ setUrl }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (query) {
-      setUrl(`${process.env.REACT_APP_API_URL}?type=public&q=${query}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`);
-      setQuery('')
+      setUrl(
+        `${process.env.REACT_APP_API_URL}?type=public&q=${query}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`
+      );
+      setQuery("");
     }
   };
-
-  // console.log(data);
 
   return (
     <SearchBarContainer>
@@ -31,7 +31,7 @@ export const SearchBar = ({ setUrl }) => {
           onChange={(e) => setQuery(e.target.value)}
         />
         <SearchBarButton type="submit">
-          <SearchBarIcon src={IconSearch} alt='IconSearch'/>
+          <SearchBarIcon src={IconSearch} alt="IconSearch" />
         </SearchBarButton>
       </SearchBarForm>
     </SearchBarContainer>
