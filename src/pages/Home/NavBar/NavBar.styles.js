@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const NavBarContainer = styled.div`
-  background-color: #168aad;
+  background-color: #52b69a;
   padding: 15px;
   display: flex;
   justify-content: space-between;
@@ -20,6 +20,9 @@ export const NavBarLogoImage = styled.img`
 
 export const NavBarLinks = styled.ul`
   display: flex;
+  justify-content: space-evenly;
+  max-width: 700px;
+  width: 100%;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -36,7 +39,7 @@ export const NavBarLink = styled.li`
   cursor: pointer;
 
   :hover {
-    background-color: #34a0a4;
+    color: #168aad;
   }
 `;
 

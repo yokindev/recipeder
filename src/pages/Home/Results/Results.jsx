@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import {
-  RecipeCard,
-  RecipeImage,
-  RecipeName,
-  RecipesContainer,
-} from "./Recipes.styles";
+  ResultCard,
+  ResultImage,
+  ResultName,
+  ResultsContainer,
+} from "./Results.styles";
 
-export const Recipes = ({ url }) => {
+export const Results = ({ url }) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -29,14 +29,14 @@ export const Recipes = ({ url }) => {
 
   if (data) {
     return (
-      <RecipesContainer>
+      <ResultsContainer>
         {data.map((option, index) => (
-          <RecipeCard key={index}>
-            <RecipeImage src={option.recipe.image} alt="ImageRecipe" />
-            <RecipeName>{option.recipe.label}</RecipeName>
-          </RecipeCard>
+          <ResultCard key={index}>
+            <ResultImage src={option.recipe.image} alt="ImageRecipe" />
+            <ResultName>{option.recipe.label}</ResultName>
+          </ResultCard>
         ))}
-      </RecipesContainer>
+      </ResultsContainer>
     );
   }
 };

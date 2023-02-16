@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const RecipesContainer = styled.div`
+export const ResultsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -8,7 +8,7 @@ export const RecipesContainer = styled.div`
   padding: 20px;
 `;
 
-export const RecipeCard = styled.div`
+export const ResultCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,11 +17,11 @@ export const RecipeCard = styled.div`
   width: 100%;
 `;
 
-export const RecipeImage = styled.img`
+export const ResultImage = styled.img`
   border-radius: 20px;
 `;
 
-export const RecipeName = styled.span`
+export const ResultName = styled.span`
   max-width: 250px;
   font-size: 15px;
   font-weight: bold;
