@@ -4,6 +4,7 @@ import { NavBar } from "./NavBar/NavBar";
 import { SearchBar } from "./SearchBar/SearchBar";
 import { Results } from "./Results/Results";
 import { useState } from "react";
+import { Recipe } from "./Recipe/Recipe";
 
 export const Home = () => {
   const [url, setUrl] = useState(
@@ -22,6 +23,7 @@ export const Home = () => {
         <Routes>
           <Route path="/" element={<Results url={url} setId={setId} />} />
           <Route path="/home" element={<Results url={url} setId={setId} />} />
+          <Route path="/recipe" element={<Recipe id={id}/>} />
         </Routes>
       </BrowserRouter>
     </>
