@@ -24,8 +24,6 @@ export const Recipe = ({ id }) => {
       } catch (error) {
         console.log(error);
       }
-
-      return { data };
     };
     fetchData();
   }, [id]);
