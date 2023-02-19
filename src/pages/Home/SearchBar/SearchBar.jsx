@@ -7,8 +7,10 @@ import {
 } from "./SearchBar.styles";
 import IconSearch from "../../../assets/svg/search.svg";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const SearchBar = ({ setUrl }) => {
+  const navigate = useNavigate();
   const [query, setQuery] = useState("");
 
   const handleSubmit = (e) => {
@@ -18,6 +20,7 @@ export const SearchBar = ({ setUrl }) => {
         `${process.env.REACT_APP_API_URL}?type=public&q=${query}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`
       );
       setQuery("");
+      navigate("/");
     }
   };
 

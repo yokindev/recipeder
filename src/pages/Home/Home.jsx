@@ -8,11 +8,10 @@ import { Recipe } from "./Recipe/Recipe";
 
 export const Home = () => {
   const [url, setUrl] = useState(
-    `${process.env.REACT_APP_API_URL}?type=public&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}&diet=balanced&random=true`
+    `${process.env.REACT_APP_API_URL}?type=public&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}&diet=balanced`
   );
-  const [id, setId] = useState("");
 
-  console.log(id);
+  const [id, setId] = useState("");
 
   return (
     <>
@@ -25,7 +24,7 @@ export const Home = () => {
         <Routes>
           <Route path="/" element={<Results url={url} setId={setId} />} />
           <Route path="/home" element={<Results url={url} setId={setId} />} />
-          <Route path="/recipe" element={<Recipe id={id}/>} />
+          <Route path="/recipe" element={<Recipe id={id} />} />
         </Routes>
       </BrowserRouter>
     </>

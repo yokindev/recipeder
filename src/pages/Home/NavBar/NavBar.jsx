@@ -27,18 +27,19 @@ export const NavBar = ({ setUrl }) => {
         {links.map((link, index) => (
           <NavBarLink
             key={index}
-            onClick={() =>
+            onClick={() => {
               setUrl(
-                `${process.env.REACT_APP_API_URL}?type=public&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}&cuisineType=${link}&random=true`
-              )
-            }
+                `${process.env.REACT_APP_API_URL}?type=public&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}&cuisineType=${link}`
+              );
+              navigate("/");
+            }}
           >
             {link}
           </NavBarLink>
         ))}
       </NavBarLinks>
       <NavBarButton onClick={() => auth.signOut()}>
-        <NavBarButtonIcon src={IconLogout} alt='IconLogout'/>
+        <NavBarButtonIcon src={IconLogout} alt="IconLogout" />
       </NavBarButton>
     </NavBarContainer>
   );
