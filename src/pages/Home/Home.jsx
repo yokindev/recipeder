@@ -1,10 +1,11 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { HomeTopBar } from "./Home.styles";
+import { HomeBadge, HomeFooter, HomeTopBar } from "./Home.styles";
+import Badge from '../../assets/svg/badge.svg'
 import { NavBar } from "./NavBar/NavBar";
 import { SearchBar } from "./SearchBar/SearchBar";
 import { Results } from "./Results/Results";
-import { useEffect, useState } from "react";
 import { Recipe } from "./Recipe/Recipe";
+import { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export const Home = () => {
   const [data, setData] = useState(null);
@@ -38,6 +39,10 @@ export const Home = () => {
           <Route path="/home" element={<Results data={data} setId={setId} />} />
           <Route path="/recipe" element={<Recipe id={id} />} />
         </Routes>
+
+        <HomeFooter>
+          <HomeBadge src={Badge}/>
+        </HomeFooter>
       </BrowserRouter>
     </>
   );
