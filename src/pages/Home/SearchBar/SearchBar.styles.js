@@ -6,7 +6,7 @@ export const SearchBarContainer = styled.div`
   height: 100px;
   padding: 0px 20px 0px 20px;
   border-bottom: 1px solid #34a0a4;
-  background-color: white;
+  background: white;
 `;
 
 export const SearchBarForm = styled.form`
@@ -17,7 +17,7 @@ export const SearchBarForm = styled.form`
   margin: 0 auto;
   border: 3px solid #34a0a4;
   border-radius: 20px;
-  padding: 10px;
+  padding: 10px 20px 10px 20px;
 `;
 
 export const SearchBarInput = styled.input`

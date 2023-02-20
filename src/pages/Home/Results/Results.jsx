@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import {
   ResultCard,
-  ResultEnergy,
   ResultImage,
   ResultInfo,
-  ResultIngredients,
   ResultName,
   ResultsContainer,
+  ResultSubName,
+  ResultData,
 } from "./Results.styles";
 
 export const Results = ({ data, setId }) => {
@@ -28,8 +28,16 @@ export const Results = ({ data, setId }) => {
             <ResultImage src={option.recipe.image} alt="ImageRecipe" />
             <ResultName>{option.recipe.label}</ResultName>
             <ResultInfo>
-              <ResultEnergy>{option.recipe.totalNutrients.ENERC_KCAL.quantity}</ResultEnergy>
-              <ResultIngredients>{(option.recipe.ingredientLines).length}</ResultIngredients>
+              <ResultSubName>
+                <ResultData>
+                  {Math.round(option.recipe.totalNutrients.ENERC_KCAL.quantity)}
+                </ResultData>{" "}
+                CALORIES
+              </ResultSubName>
+              <ResultSubName>
+                <ResultData>{option.recipe.ingredientLines.length}</ResultData>{" "}
+                INGREDIENTS
+              </ResultSubName>
             </ResultInfo>
           </ResultCard>
         ))}

@@ -17,28 +17,40 @@ export const ResultCard = styled.div`
   width: 100%;
   border: 2px solid #34a0a4;
   border-radius: 20px;
-  padding: 5px;
-  background-color: #efefef;
+  // padding: 5px;
+  background-color: #f0f0f0;
   cursor: pointer;
 `;
 
 export const ResultImage = styled.img`
   max-width: 300px;
   width: 100%;
-  border-radius: 20px 20px 0px 0px;
+  border-radius: 18px 18px 0px 0px;
 `;
 
 export const ResultName = styled.span`
+  display: flex;
+  align-items: flex-start;
   max-width: 250px;
+  height: 50px;
   font-size: 15px;
   font-weight: bold;
   text-align: center;
 `;
 
-export const ResultInfo = styled.div``;
+export const ResultInfo = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 280px;
+  width: 100%;
+  border-top: 1px solid #34a0a4;
+`;
 
-export const ResultEnergy= styled.p``;
+export const ResultSubName = styled.p`
+  font-size: 14px;
+`;
 
-export const ResultIngredients = styled.p``;
-
-
+export const ResultData = styled.span`
+  font-weight: bold;
+  color: #52b69a;
+`;
