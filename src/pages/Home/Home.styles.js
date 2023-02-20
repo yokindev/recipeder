@@ -13,7 +13,6 @@ export const HomeFooter = styled.div`
   height: 70px;
   // position: sticky;
   bottom: 0px;
-  margin-top: 50px;
   border-top: 1px solid #34a0a4;
   background: white;
 `;

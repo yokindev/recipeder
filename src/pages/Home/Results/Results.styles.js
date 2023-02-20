@@ -5,7 +5,7 @@ export const ResultsContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 50px;
-  padding: 20px;
+  padding: 50px 20px 50px 20px;
 `;
 
 export const ResultCard = styled.div`
@@ -17,7 +17,7 @@ export const ResultCard = styled.div`
   width: 100%;
   border: 2px solid #34a0a4;
   border-radius: 20px;
-  // padding: 5px;
+  padding: 5px;
   background-color: #f0f0f0;
   cursor: pointer;
 `;
