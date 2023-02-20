@@ -16,7 +16,8 @@ export const Results = ({ data, setId }) => {
           <ResultCard
             key={index}
             onClick={() => {
-              setId(option._links.self.href);
+              setId(option);
+              console.log(option);
               navigate("/recipe");
             }}
           >

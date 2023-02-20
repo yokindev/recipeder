@@ -8,7 +8,7 @@ import {
 import IconSearch from "../../../assets/svg/search.svg";
 import { useState } from "react";
 
-export const SearchBar = ({setData}) => {
+export const SearchBar = ({ setData }) => {
   const [query, setQuery] = useState("");
 
   const searchRecipe = async (e) => {

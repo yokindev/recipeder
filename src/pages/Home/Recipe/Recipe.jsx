@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import {
   RecipeButton,
   RecipeContainer,
@@ -9,41 +7,26 @@ import {
   RecipeIngredientsList,
   RecipeName,
 } from "./Recipe.styles";
+import { useNavigate } from "react-router-dom";
 
 export const Recipe = ({ id }) => {
-  const [data, setData] = useState(null);
-
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(id);
-        const json = await res.json();
-        setData(json.recipe);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, [id]);
+  const { recipe } = id;
+  const { ingredients } = recipe;
 
-  if (data) {
-    const { ingredients } = data;
-    console.log(ingredients);
-    return (
-      <RecipeContainer>
-        <RecipeName>{data.label}</RecipeName>
-        <RecipeImage src={data.image} alt="ImageRecipe" />
-        <RecipeInfo>
-          <RecipeIngredientsList>
-            {ingredients.map((ingredient, index) => (
-              <RecipeIngredient key={index}>{ingredient.text}</RecipeIngredient>
-            ))}
-          </RecipeIngredientsList>
-        </RecipeInfo>
-        <RecipeButton onClick={() => navigate("/")}>Back</RecipeButton>
-      </RecipeContainer>
-    );
-  }
+  return (
+    <RecipeContainer>
+      <RecipeName>{recipe.label}</RecipeName>
+      <RecipeImage src={recipe.image} alt="ImageRecipe" />
+      <RecipeInfo>
+        <RecipeIngredientsList>
+          {ingredients.map((ingredient, index) => (
+            <RecipeIngredient key={index}>{ingredient.text}</RecipeIngredient>
+          ))}
+        </RecipeIngredientsList>
+      </RecipeInfo>
+      <RecipeButton onClick={() => navigate("/")}>Back</RecipeButton>
+    </RecipeContainer>
+  );
 };

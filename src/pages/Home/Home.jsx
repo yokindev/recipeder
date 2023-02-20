@@ -8,7 +8,7 @@ import { Recipe } from "./Recipe/Recipe";
 
 export const Home = () => {
   const [data, setData] = useState(null);
-  const [id, setId] = useState("");
+  const [id, setId] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,8 +24,6 @@ export const Home = () => {
     };
     fetchData();
   }, []);
-
-  console.log(data);
 
   return (
     <>
