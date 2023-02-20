@@ -15,11 +15,17 @@ export const ResultCard = styled.div`
   gap: 15px;
   max-width: 300px;
   width: 100%;
+  border: 2px solid #34a0a4;
+  border-radius: 20px;
+  padding: 5px;
+  background-color: #efefef;
   cursor: pointer;
 `;
 
 export const ResultImage = styled.img`
-  border-radius: 20px;
+  max-width: 300px;
+  width: 100%;
+  border-radius: 20px 20px 0px 0px;
 `;
 
 export const ResultName = styled.span`
@@ -28,3 +34,11 @@ export const ResultName = styled.span`
   font-weight: bold;
   text-align: center;
 `;
+
+export const ResultInfo = styled.div``;
+
+export const ResultEnergy= styled.p``;
+
+export const ResultIngredients = styled.p``;
+
+
