@@ -53,7 +53,7 @@ export const RecipeInfo = styled.div`
 
 export const RecipeInfoSection = styled.div`
   display: flex;
-  gap: 5px;
+  gap: 10px;
   align-items: center;
   flex-wrap: wrap;
 `;
@@ -67,14 +67,15 @@ export const RecipeInfoData = styled.p`
   font-weight: bold;
 `;
 
-export const RecipeInfoName = styled.p`
+export const RecipeInfoText = styled.p`
   margin: 0;
   line-height: 25px;
 `;
 
 export const RecipeSubName = styled.h3`
   margin: 0;
-  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #34a0a4;
 `;
 
 export const RecipeList = styled.ul`
@@ -84,6 +85,7 @@ export const RecipeList = styled.ul`
 `;
 
 export const RecipeIngredient = styled.li`
+  margin: 0;
   margin-left: 20px;
   margin-bottom: 20px;
   text-indent: -20px;
@@ -98,7 +100,7 @@ export const RecipeIngredient = styled.li`
 export const RecipeNutrient = styled.li`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
 
 export const RecipeButton = styled.button`

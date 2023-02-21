@@ -37,7 +37,13 @@ export const NavBar = ({ setData }) => {
       </NavBarLogo>
       <NavBarLinks>
         {links.map((link, index) => (
-          <NavBarLink key={index} onClick={() => searchType(link)}>
+          <NavBarLink
+            key={index}
+            onClick={() => {
+              searchType(link);
+              navigate("/");
+            }}
+          >
             {link}
           </NavBarLink>
         ))}

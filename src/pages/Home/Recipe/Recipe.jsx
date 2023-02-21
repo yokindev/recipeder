@@ -7,8 +7,8 @@ import {
   RecipeInfo,
   RecipeInfoData,
   RecipeInfoIcon,
-  RecipeInfoName,
   RecipeInfoSection,
+  RecipeInfoText,
   RecipeIngredient,
   RecipeList,
   RecipeName,
@@ -37,22 +37,21 @@ export const Recipe = ({ id }) => {
             <RecipeInfo>
               <RecipeInfoSection>
                 <RecipeInfoIcon src={IconServings} />
-                <RecipeInfoData>{recipe.yield}</RecipeInfoData>
-                <RecipeInfoName>Servings</RecipeInfoName>
+                <RecipeInfoData>{recipe.yield} Servings</RecipeInfoData>
               </RecipeInfoSection>
               <RecipeInfoSection>
                 <RecipeInfoIcon src={IconCalories} />
                 <RecipeInfoData>
-                  {Math.round(recipe.calories / recipe.yield)}
+                  {Math.round(recipe.calories / recipe.yield)} Calories per
+                  serve
                 </RecipeInfoData>
-                <RecipeInfoName>Calories per serve</RecipeInfoName>
               </RecipeInfoSection>
               <RecipeInfoSection>
                 <RecipeInfoIcon src={IconExclamation} />
                 <RecipeInfoData>Health labels:</RecipeInfoData>
-                <RecipeInfoName>
+                <RecipeInfoText>
                   {recipe.healthLabels.join(", ")}
-                </RecipeInfoName>
+                </RecipeInfoText>
               </RecipeInfoSection>
             </RecipeInfo>
           </RecipeDiv>
@@ -83,7 +82,7 @@ export const Recipe = ({ id }) => {
           </RecipeDiv>
         </RecipeWrapper>
 
-        <RecipeButton onClick={() => navigate("/")}>Back</RecipeButton>
+        <RecipeButton onClick={() => navigate("/")}>X</RecipeButton>
       </RecipeCard>
     </RecipeContainer>
   );
