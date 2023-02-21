@@ -9,6 +9,7 @@ export const HomeTopBar = styled.div`
 export const HomeFooter = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
   height: 70px;
   // position: sticky;

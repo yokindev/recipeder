@@ -1,10 +1,10 @@
 import { HomeBadge, HomeFooter, HomeTopBar } from "./Home.styles";
-import Badge from '../../assets/svg/badge.svg'
+import Badge from "../../assets/svg/badge.svg";
 import { NavBar } from "./NavBar/NavBar";
 import { SearchBar } from "./SearchBar/SearchBar";
 import { Results } from "./Results/Results";
 import { Recipe } from "./Recipe/Recipe";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export const Home = () => {
@@ -41,7 +41,7 @@ export const Home = () => {
         </Routes>
 
         <HomeFooter>
-          <HomeBadge src={Badge}/>
+          <HomeBadge src={Badge} />
         </HomeFooter>
       </BrowserRouter>
     </>

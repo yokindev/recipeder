@@ -14,18 +14,29 @@ export const RecipeCard = styled.div`
   max-width: 1000px;
   border: 2px solid #34a0a4;
   border-radius: 20px;
-  padding: 10px;
+  padding: 40px;
   background-color: #f0f0f0;
 `;
 
-export const RecipeContent = styled.div`
+export const RecipeWrapper = styled.div`
   display: flex;
   gap: 50px;
 `;
 
-export const RecipeInfo = styled.div`
+export const RecipeImage = styled.img`
+  max-width: 500px;
+  width: 100%;
+  max-height: 500px;
+  height: 100%;
+  border-radius: 20px;
+`;
+
+export const RecipeDiv = styled.div`
   display: flex;
+  gap: 25px;
   flex-direction: column;
+  max-width: 500px;
+  width: 100%;
 `;
 
 export const RecipeName = styled.h1`
@@ -34,19 +45,39 @@ export const RecipeName = styled.h1`
   font-weight: bold;
 `;
 
-export const RecipeImage = styled.img`
-  max-width: 500px;
-  width: 100%;
-  border-radius: 20px;
+export const RecipeInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+export const RecipeInfoSection = styled.div`
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  flex-wrap: wrap;
+`;
+
+export const RecipeInfoIcon = styled.img`
+  width: 20px;
+`;
+
+export const RecipeInfoData = styled.p`
+  margin: 0;
+  font-weight: bold;
+`;
+
+export const RecipeInfoName = styled.p`
+  margin: 0;
+  line-height: 25px;
 `;
 
 export const RecipeSubName = styled.h3`
   margin: 0;
-  margin-left: 20px;
   margin-bottom: 20px;
 `;
 
-export const RecipeIngredientsList = styled.ul`
+export const RecipeList = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
@@ -55,13 +86,19 @@ export const RecipeIngredientsList = styled.ul`
 export const RecipeIngredient = styled.li`
   margin-left: 20px;
   margin-bottom: 20px;
-  text-indent: -0.7em;
+  text-indent: -20px;
   ::before {
     content: "• ";
     font-size: 25px;
     font-weight: bold;
     color: #76c893;
   }
+`;
+
+export const RecipeNutrient = styled.li`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
 `;
 
 export const RecipeButton = styled.button`

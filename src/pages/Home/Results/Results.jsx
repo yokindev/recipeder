@@ -35,7 +35,7 @@ export const Results = ({ data, setId }) => {
                 CALORIES
               </ResultSubName>
               <ResultSubName>
-                <ResultData>{option.recipe.ingredientLines.length}</ResultData>
+                <ResultData>{option.recipe.ingredientLines.length}</ResultData>{" "}
                 INGREDIENTS
               </ResultSubName>
             </ResultInfo>
