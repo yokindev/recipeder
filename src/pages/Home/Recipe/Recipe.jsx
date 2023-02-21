@@ -2,6 +2,7 @@ import {
   RecipeButton,
   RecipeCard,
   RecipeContainer,
+  RecipeMainDiv,
   RecipeDiv,
   RecipeImage,
   RecipeInfo,
@@ -32,7 +33,7 @@ export const Recipe = ({ id }) => {
       <RecipeCard>
         <RecipeWrapper>
           <RecipeImage src={recipe.image} alt="ImageRecipe" />
-          <RecipeDiv>
+          <RecipeMainDiv>
             <RecipeName>{recipe.label}</RecipeName>
             <RecipeInfo>
               <RecipeInfoSection>
@@ -54,7 +55,14 @@ export const Recipe = ({ id }) => {
                 </RecipeInfoText>
               </RecipeInfoSection>
             </RecipeInfo>
-          </RecipeDiv>
+            <RecipeButton
+              href={recipe.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instructions
+            </RecipeButton>
+          </RecipeMainDiv>
         </RecipeWrapper>
         <RecipeWrapper>
           <RecipeDiv>
@@ -81,8 +89,6 @@ export const Recipe = ({ id }) => {
             </RecipeList>
           </RecipeDiv>
         </RecipeWrapper>
-
-        <RecipeButton onClick={() => navigate("/")}>X</RecipeButton>
       </RecipeCard>
     </RecipeContainer>
   );

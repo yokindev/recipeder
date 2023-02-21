@@ -23,6 +23,7 @@ export const Results = ({ data, setId }) => {
               setId(option);
               console.log(option);
               navigate("/recipe");
+              window.scrollTo({ top: 0 });
             }}
           >
             <ResultImage src={option.recipe.image} alt="ImageRecipe" />

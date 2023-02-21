@@ -31,6 +31,14 @@ export const RecipeImage = styled.img`
   border-radius: 20px;
 `;
 
+export const RecipeMainDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  max-width: 500px;
+  width: 100%;
+`;
+
 export const RecipeDiv = styled.div`
   display: flex;
   gap: 25px;
@@ -41,7 +49,7 @@ export const RecipeDiv = styled.div`
 
 export const RecipeName = styled.h1`
   margin: 0;
-  font-size: 45px;
+  font-size: 40px;
   font-weight: bold;
 `;
 
@@ -103,15 +111,21 @@ export const RecipeNutrient = styled.li`
   margin-bottom: 20px;
 `;
 
-export const RecipeButton = styled.button`
+export const RecipeButton = styled.a`
   width: 100%;
-  max-width: 100px;
+  max-width: 150px;
   padding: 10px;
   border: none;
   border-radius: 15px;
+  text-decoration: none;
+  text-align: center;
   font-weight: bold;
   font-size: 20px;
   background: #76c893;
   color: white;
   cursor: pointer;
+
+  &:hover {
+    background: #52b69a;
+  }
 `;

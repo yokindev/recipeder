@@ -21,7 +21,7 @@ export const NavBar = ({ setData }) => {
   const searchType = async (link) => {
     try {
       const res = await fetch(
-        `${process.env.REACT_APP_API_URL}?type=public&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}&cuisineType=${link}`
+        `${process.env.REACT_APP_API_URL}?type=public&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}&cuisineType=${link}&random=true`
       );
       const json = await res.json();
       setData(json.hits);
@@ -32,7 +32,7 @@ export const NavBar = ({ setData }) => {
 
   return (
     <NavBarContainer>
-      <NavBarLogo onClick={() => navigate("/")}>
+      <NavBarLogo onClick={() => navigate("/home")}>
         <NavBarLogoImage src={ImageLogo} />
       </NavBarLogo>
       <NavBarLinks>
@@ -42,6 +42,7 @@ export const NavBar = ({ setData }) => {
             onClick={() => {
               searchType(link);
               navigate("/");
+              window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
           >
             {link}

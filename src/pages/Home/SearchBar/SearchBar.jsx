@@ -7,9 +7,12 @@ import {
 } from "./SearchBar.styles";
 import IconSearch from "../../../assets/svg/search.svg";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const SearchBar = ({ setData }) => {
   const [query, setQuery] = useState("");
+
+  const navigate = useNavigate();
 
   const searchRecipe = async (e) => {
     e.preventDefault();
@@ -24,7 +27,9 @@ export const SearchBar = ({ setData }) => {
         console.log(error);
       }
 
+      navigate("/home");
       setQuery("");
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
