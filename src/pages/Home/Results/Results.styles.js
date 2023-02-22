@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ReactComponent as IconUp } from "../../../assets/svg/up.svg";
 
 export const ResultsContainer = styled.div`
   display: flex;
@@ -6,6 +7,12 @@ export const ResultsContainer = styled.div`
   justify-content: center;
   gap: 50px;
   padding: 50px 20px 50px 20px;
+`;
+
+export const ResultsDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 50px;
 `;
 
 export const ResultCard = styled.div`
@@ -53,4 +60,16 @@ export const ResultSubName = styled.p`
 export const ResultData = styled.span`
   font-weight: bold;
   color: #52b69a;
+`;
+
+export const ResultIcon = styled(IconUp)`
+  width: 40px;
+  height: 40px;
+  fill: #76c893;
+  align-self: center;
+  cursor: pointer;
+
+  &:hover {
+    fill: #34a0a4;
+  }
 `;

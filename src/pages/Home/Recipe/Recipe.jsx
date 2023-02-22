@@ -21,8 +21,6 @@ import {
 import IconServings from "../../../assets/svg/servings.svg";
 import IconCalories from "../../../assets/svg/calories.svg";
 import IconExclamation from "../../../assets/svg/exclamation.svg";
-import IconClose from "../../../assets/svg/close.svg";
-import IconUp from "../../../assets/svg/up.svg";
 import { useNavigate } from "react-router-dom";
 
 export const Recipe = ({ id }) => {
@@ -93,7 +91,6 @@ export const Recipe = ({ id }) => {
           </RecipeDiv>
         </RecipeWrapper>
         <RecipeIcon
-          src={IconUp}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         />
       </RecipeCard>

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ReactComponent as IconUp } from "../../../assets/svg/up.svg";
 
 export const RecipeContainer = styled.div`
   display: flex;
@@ -130,8 +131,14 @@ export const RecipeButton = styled.a`
   }
 `;
 
-export const RecipeIcon = styled.img`
+export const RecipeIcon = styled(IconUp)`
   width: 40px;
+  height: 40px;
+  fill: #76c893;
   align-self: center;
   cursor: pointer;
+
+  &:hover {
+    fill: #34a0a4;
+  }
 `;
