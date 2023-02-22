@@ -3,7 +3,6 @@ import {
   NavBarLogo,
   NavBarLogoImage,
   NavBarButton,
-  NavBarButtonIcon,
   NavBarLinks,
   NavBarLink,
 } from "./NavBar.styles";
@@ -42,16 +41,18 @@ export const NavBar = ({ setData }) => {
             onClick={() => {
               searchType(link);
               navigate("/");
-              window.scrollTo({ top: 0, behavior: 'smooth' });
+              window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
             {link}
           </NavBarLink>
         ))}
       </NavBarLinks>
-      <NavBarButton onClick={() => auth.signOut()}>
-        <NavBarButtonIcon src={IconLogout} alt="IconLogout" />
-      </NavBarButton>
+      <NavBarButton
+        src={IconLogout}
+        alt="IconLogout"
+        onClick={() => auth.signOut()}
+      />
     </NavBarContainer>
   );
 };

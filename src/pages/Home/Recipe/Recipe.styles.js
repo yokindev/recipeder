@@ -126,6 +126,12 @@ export const RecipeButton = styled.a`
   cursor: pointer;
 
   &:hover {
-    background: #52b69a;
+    background: #168aad;
   }
+`;
+
+export const RecipeIcon = styled.img`
+  width: 40px;
+  align-self: center;
+  cursor: pointer;
 `;

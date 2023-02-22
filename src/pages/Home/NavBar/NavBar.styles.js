@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const NavBarContainer = styled.div`
   background-color: #52b69a;
-  padding: 15px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -43,12 +43,10 @@ export const NavBarLink = styled.li`
   }
 `;
 
-export const NavBarButton = styled.button`
-  border: none;
-  background: none;
+export const NavBarButton = styled.img`
+  width: 30px;
   cursor: pointer;
+
+  &: hover;
 `;
 
-export const NavBarButtonIcon = styled.img`
-  width: 25px;
-`;
