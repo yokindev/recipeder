@@ -7,7 +7,6 @@ import {
   NavBarLink,
 } from "./NavBar.styles";
 import ImageLogo from "../../../assets/images/chef-hat.png";
-import IconLogout from "../../../assets/svg/power.svg";
 import { getAuth } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
@@ -48,11 +47,7 @@ export const NavBar = ({ setData }) => {
           </NavBarLink>
         ))}
       </NavBarLinks>
-      <NavBarButton
-        src={IconLogout}
-        alt="IconLogout"
-        onClick={() => auth.signOut()}
-      />
+      <NavBarButton onClick={() => auth.signOut()} />
     </NavBarContainer>
   );
 };

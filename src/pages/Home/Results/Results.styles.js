@@ -24,7 +24,7 @@ export const ResultCard = styled.div`
   width: 100%;
   border: 2px solid #34a0a4;
   border-radius: 20px;
-  padding: 5px;
+  padding: 10px;
   background-color: #f0f0f0;
   cursor: pointer;
 `;
@@ -70,6 +70,6 @@ export const ResultIcon = styled(IconUp)`
   cursor: pointer;
 
   &:hover {
-    fill: #34a0a4;
+    fill: #168aad;
   }
 `;

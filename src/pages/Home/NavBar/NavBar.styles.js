@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { ReactComponent as IconLogout } from "../../../assets/svg/power.svg";
 
 export const NavBarContainer = styled.div`
-  background-color: #52b69a;
+  background: #168aad;
   padding: 20px;
   display: flex;
   justify-content: space-between;
@@ -43,10 +44,13 @@ export const NavBarLink = styled.li`
   }
 `;
 
-export const NavBarButton = styled.img`
+export const NavBarButton = styled(IconLogout)`
   width: 30px;
+  height: 30px;
+  fill: #ffffff;
   cursor: pointer;
 
-  &: hover;
+  :hover {
+    fill: #34a0a4;
+  }
 `;
-

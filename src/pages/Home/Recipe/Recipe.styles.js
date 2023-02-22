@@ -50,7 +50,7 @@ export const RecipeDiv = styled.div`
 
 export const RecipeName = styled.h1`
   margin: 0;
-  font-size: 40px;
+  font-size: 35px;
   font-weight: bold;
 `;
 
@@ -139,6 +139,6 @@ export const RecipeIcon = styled(IconUp)`
   cursor: pointer;
 
   &:hover {
-    fill: #34a0a4;
+    fill: #168aad;
   }
 `;
