@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { ReactComponent as IconServings } from "../../../assets/svg/servings.svg";
+import { ReactComponent as IconCalories } from "../../../assets/svg/calories.svg";
+import { ReactComponent as IconExclamation } from "../../../assets/svg/exclamation.svg";
 import { ReactComponent as IconUp } from "../../../assets/svg/up.svg";
 
 export const RecipeContainer = styled.div`
@@ -67,8 +70,22 @@ export const RecipeInfoSection = styled.div`
   flex-wrap: wrap;
 `;
 
-export const RecipeInfoIcon = styled.img`
+export const RecipeIconServings = styled(IconServings)`
   width: 20px;
+  height: 20px;
+  fill: #76c893;
+`;
+
+export const RecipeIconCalories = styled(IconCalories)`
+  width: 20px;
+  height: 20px;
+  fill: #76c893;
+`;
+
+export const RecipeIconExclamation = styled(IconExclamation)`
+  width: 20px;
+  height: 20px;
+  fill: #76c893;
 `;
 
 export const RecipeInfoData = styled.p`

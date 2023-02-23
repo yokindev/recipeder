@@ -7,7 +7,6 @@ import {
   RecipeImage,
   RecipeInfo,
   RecipeInfoData,
-  RecipeInfoIcon,
   RecipeInfoSection,
   RecipeInfoText,
   RecipeIngredient,
@@ -17,10 +16,10 @@ import {
   RecipeSubName,
   RecipeWrapper,
   RecipeIcon,
+  RecipeIconServings,
+  RecipeIconCalories,
+  RecipeIconExclamation,
 } from "./Recipe.styles";
-import IconServings from "../../../assets/svg/servings.svg";
-import IconCalories from "../../../assets/svg/calories.svg";
-import IconExclamation from "../../../assets/svg/exclamation.svg";
 import { useNavigate } from "react-router-dom";
 
 export const Recipe = ({ id }) => {
@@ -38,18 +37,18 @@ export const Recipe = ({ id }) => {
             <RecipeName>{recipe.label}</RecipeName>
             <RecipeInfo>
               <RecipeInfoSection>
-                <RecipeInfoIcon src={IconServings} />
+                <RecipeIconServings />
                 <RecipeInfoData>{recipe.yield} Servings</RecipeInfoData>
               </RecipeInfoSection>
               <RecipeInfoSection>
-                <RecipeInfoIcon src={IconCalories} />
+                <RecipeIconCalories />
                 <RecipeInfoData>
                   {Math.round(recipe.calories / recipe.yield)} Calories per
                   serve
                 </RecipeInfoData>
               </RecipeInfoSection>
               <RecipeInfoSection>
-                <RecipeInfoIcon src={IconExclamation} />
+                <RecipeIconExclamation />
                 <RecipeInfoData>Health labels:</RecipeInfoData>
                 <RecipeInfoText>
                   {recipe.healthLabels.join(", ")}

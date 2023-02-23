@@ -41,8 +41,8 @@ export const NavBarInput = styled.input`
 `;
 
 export const NavBarButtonSearch = styled(IconSearch)`
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   fill: #34a0a4;
   cursor: pointer;
 
