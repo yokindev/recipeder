@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as IconLogout } from "../../../assets/svg/power.svg";
+import { ReactComponent as IconSearch } from "../../../assets/svg/search.svg";
 
 export const NavBarContainer = styled.div`
   background: #168aad;
@@ -17,6 +18,37 @@ export const NavBarLogo = styled.button`
 
 export const NavBarLogoImage = styled.img`
   width: 50px;
+`;
+
+export const NavBarForm = styled.form`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px 10px 20px;
+  background: white;
+`;
+
+export const NavBarInput = styled.input`
+  width: 100%;
+  border: none;
+  font-weight: 900;
+  font-size: 20px;
+  outline: none;
+`;
+
+export const NavBarButtonSearch = styled(IconSearch)`
+  width: 30px;
+  height: 30px;
+  fill: #34a0a4;
+  cursor: pointer;
+
+  :hover {
+    fill: #168aad;
+  }
 `;
 
 export const NavBarLinks = styled.ul`
@@ -40,11 +72,11 @@ export const NavBarLink = styled.li`
   cursor: pointer;
 
   :hover {
-    color: #168aad;
+    color: #34a0a4;
   }
 `;
 
-export const NavBarButton = styled(IconLogout)`
+export const NavBarButtonLogout = styled(IconLogout)`
   width: 30px;
   height: 30px;
   fill: #ffffff;

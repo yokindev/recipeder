@@ -1,7 +1,6 @@
 import { HomeBadge, HomeFooter, HomeTopBar } from "./Home.styles";
 import Badge from "../../assets/svg/badge.svg";
 import { NavBar } from "./NavBar/NavBar";
-import { SearchBar } from "./SearchBar/SearchBar";
 import { Results } from "./Results/Results";
 import { Recipe } from "./Recipe/Recipe";
 import { useState, useEffect } from "react";
@@ -31,7 +30,6 @@ export const Home = () => {
       <BrowserRouter>
         <HomeTopBar>
           <NavBar setData={setData} />
-          <SearchBar setData={setData} />
         </HomeTopBar>
 
         <Routes>
