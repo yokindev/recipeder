@@ -1,6 +1,6 @@
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
-export const signInWithGoogle = () => {
+export const signInWithGoogle = (setUser) => {
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
 
@@ -8,8 +8,7 @@ export const signInWithGoogle = () => {
 
   signInWithPopup(auth, provider)
     .then((result) => {
-      const user = result.user;
-      return user;
+      setUser(result.user);
     })
     .catch((error) => {
       console.log(error);

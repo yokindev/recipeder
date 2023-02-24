@@ -14,7 +14,7 @@ function App() {
     });
   }, [auth]);
 
-  return <>{user ? <Home /> : <Login />}</>;
+  return <>{user ? <Home /> : <Login setUser={setUser}/>}</>;
 }
 
 export default App;
