@@ -4,7 +4,6 @@ import { NavBar } from "./NavBar/NavBar";
 import { Results } from "./Results/Results";
 import { Recipe } from "./Recipe/Recipe";
 import { useState, useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export const Home = () => {
   const [data, setData] = useState(null);
@@ -27,21 +26,15 @@ export const Home = () => {
 
   return (
     <>
-      <BrowserRouter>
-        <HomeTopBar>
-          <NavBar setData={setData} />
-        </HomeTopBar>
+      <HomeTopBar>
+        <NavBar setData={setData} setId={setId} />
+      </HomeTopBar>
 
-        <Routes>
-          <Route path="/" element={<Results data={data} setId={setId} />} />
-          <Route path="/home" element={<Results data={data} setId={setId} />} />
-          <Route path="/recipe" element={<Recipe id={id} />} />
-        </Routes>
+      {id ? <Recipe id={id} setId={setId}/> : <Results data={data} setId={setId} />}
 
-        <HomeFooter>
-          <HomeBadge />
-        </HomeFooter>
-      </BrowserRouter>
+      <HomeFooter>
+        <HomeBadge />
+      </HomeFooter>
     </>
   );
 };

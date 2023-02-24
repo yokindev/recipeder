@@ -20,11 +20,8 @@ import {
   RecipeIconCalories,
   RecipeIconExclamation,
 } from "./Recipe.styles";
-import { useNavigate } from "react-router-dom";
 
-export const Recipe = ({ id }) => {
-  const navigate = useNavigate();
-
+export const Recipe = ({ id, setId }) => {
   const { recipe } = id;
   const { ingredients, totalNutrients } = recipe;
 
@@ -64,6 +61,7 @@ export const Recipe = ({ id }) => {
               >
                 Instructions
               </RecipeButton>
+              <RecipeButton onClick={() => setId(null)}>Back</RecipeButton>
             </RecipeMainDiv>
           </RecipeWrapper>
           <RecipeWrapper>

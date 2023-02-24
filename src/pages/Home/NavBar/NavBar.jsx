@@ -12,11 +12,9 @@ import {
 
 import ImageLogo from "../../../assets/images/chef-hat.png";
 import { getAuth } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-export const NavBar = ({ setData }) => {
-  const navigate = useNavigate();
+export const NavBar = ({ setData, setId }) => {
   const auth = getAuth();
 
   const [query, setQuery] = useState("");
@@ -31,11 +29,11 @@ export const NavBar = ({ setData }) => {
         );
         const json = await res.json();
         setData(json.hits);
+        setId(null);
       } catch (error) {
         console.log(error);
       }
 
-      navigate("/home");
       setQuery("");
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -48,6 +46,7 @@ export const NavBar = ({ setData }) => {
       );
       const json = await res.json();
       setData(json.hits);
+      setId(null);
     } catch (error) {
       console.log(error);
     }
@@ -55,7 +54,7 @@ export const NavBar = ({ setData }) => {
 
   return (
     <NavBarContainer>
-      <NavBarLogo onClick={() => navigate("/home")}>
+      <NavBarLogo>
         <NavBarLogoImage src={ImageLogo} />
       </NavBarLogo>
       <NavBarForm onSubmit={searchRecipe}>
@@ -73,7 +72,6 @@ export const NavBar = ({ setData }) => {
             key={index}
             onClick={() => {
               searchType(link);
-              navigate("/");
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
@@ -84,7 +82,6 @@ export const NavBar = ({ setData }) => {
       <NavBarButtonLogout
         onClick={() => {
           auth.signOut();
-          navigate("/");
         }}
       />
     </NavBarContainer>

@@ -1,18 +1,18 @@
 import styled from "styled-components";
 import { ReactComponent as IconUp } from "../../../assets/svg/up.svg";
 
+export const ResultsDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 50px;
+`;
+
 export const ResultsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 50px;
   padding: 50px 20px 50px 20px;
-`;
-
-export const ResultsDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 50px;
 `;
 
 export const ResultCard = styled.div`
@@ -39,7 +39,8 @@ export const ResultName = styled.span`
   display: flex;
   align-items: flex-start;
   max-width: 250px;
-  height: 50px;
+  max-height: 80px;
+  height: 100%;
   font-size: 15px;
   font-weight: bold;
   text-align: center;

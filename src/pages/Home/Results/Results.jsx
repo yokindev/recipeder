@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import {
   ResultCard,
   ResultImage,
@@ -12,8 +11,6 @@ import {
 } from "./Results.styles";
 
 export const Results = ({ data, setId }) => {
-  const navigate = useNavigate();
-
   if (data) {
     console.log(data);
     return (
@@ -24,7 +21,6 @@ export const Results = ({ data, setId }) => {
               key={index}
               onClick={() => {
                 setId(option);
-                navigate("/recipe");
                 window.scrollTo({ top: 0 });
               }}
             >
