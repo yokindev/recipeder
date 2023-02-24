@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {ReactComponent as Badge} from "../../assets/svg/badge.svg";
 
 export const HomeTopBar = styled.div`
   width: 100%;
@@ -18,7 +19,7 @@ export const HomeFooter = styled.div`
   background: white;
 `;
 
-export const HomeBadge = styled.img`
+export const HomeBadge = styled(Badge)`
   max-width: 250px;
   width: 100%;
 `;

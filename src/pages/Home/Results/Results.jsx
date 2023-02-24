@@ -24,7 +24,6 @@ export const Results = ({ data, setId }) => {
               key={index}
               onClick={() => {
                 setId(option);
-                console.log(option);
                 navigate("/recipe");
                 window.scrollTo({ top: 0 });
               }}

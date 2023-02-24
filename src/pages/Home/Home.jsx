@@ -1,5 +1,5 @@
 import { HomeBadge, HomeFooter, HomeTopBar } from "./Home.styles";
-import Badge from "../../assets/svg/badge.svg";
+
 import { NavBar } from "./NavBar/NavBar";
 import { Results } from "./Results/Results";
 import { Recipe } from "./Recipe/Recipe";
@@ -39,7 +39,7 @@ export const Home = () => {
         </Routes>
 
         <HomeFooter>
-          <HomeBadge src={Badge} />
+          <HomeBadge />
         </HomeFooter>
       </BrowserRouter>
     </>

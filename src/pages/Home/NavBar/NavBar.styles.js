@@ -24,8 +24,7 @@ export const NavBarForm = styled.form`
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 700px;
-  margin: 0 auto;
+  max-width: 600px;
   border: none;
   border-radius: 20px;
   padding: 10px 20px 10px 20px;
