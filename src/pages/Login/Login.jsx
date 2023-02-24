@@ -6,7 +6,7 @@ export const Login = ({setUser}) => {
   return (
     <LoginContainer>
       <LoginImage src={ImageLogo} alt="Logo" />
-      <LoginButton onClick={() => signInWithGoogle(setUser)}>Sign in with google</LoginButton>
+      <LoginButton onClick={() => signInWithGoogle({setUser})}>Sign in with google</LoginButton>
     </LoginContainer>
   );
 };

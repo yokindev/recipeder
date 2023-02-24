@@ -30,7 +30,11 @@ export const Home = () => {
         <NavBar setData={setData} setId={setId} />
       </HomeTopBar>
 
-      {id ? <Recipe id={id} setId={setId}/> : <Results data={data} setId={setId} />}
+      {id ? (
+        <Recipe id={id} setId={setId} />
+      ) : (
+        <Results data={data} setId={setId} />
+      )}
 
       <HomeFooter>
         <HomeBadge />

@@ -1,10 +1,13 @@
 import styled from "styled-components";
-import {ReactComponent as Badge} from "../../assets/svg/badge.svg";
+import { ReactComponent as Badge } from "../../assets/svg/badge.svg";
 
 export const HomeTopBar = styled.div`
   width: 100%;
   position: sticky;
   top: 0px;
+  background: #168aad;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 `;
 
 export const HomeFooter = styled.div`

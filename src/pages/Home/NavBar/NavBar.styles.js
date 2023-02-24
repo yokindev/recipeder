@@ -3,7 +3,6 @@ import { ReactComponent as IconLogout } from "../../../assets/svg/power.svg";
 import { ReactComponent as IconSearch } from "../../../assets/svg/search.svg";
 
 export const NavBarContainer = styled.div`
-  background: #168aad;
   padding: 20px;
   display: flex;
   justify-content: space-between;
