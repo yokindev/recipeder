@@ -14,7 +14,7 @@ export const RecipeCard = styled.div`
   display: flex;
   flex-direction: column;
   gap: 50px;
-  width: 100%;
+  // width: 100%;
   max-width: 1000px;
   border: 2px solid #34a0a4;
   border-radius: 20px;
@@ -25,13 +25,16 @@ export const RecipeCard = styled.div`
 export const RecipeWrapper = styled.div`
   display: flex;
   gap: 50px;
+
+  @media (max-width: 950px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const RecipeImage = styled.img`
   max-width: 500px;
   width: 100%;
-  max-height: 500px;
-  height: 100%;
   border-radius: 20px;
 `;
 
@@ -39,6 +42,7 @@ export const RecipeMainDiv = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  gap: 30px;
   max-width: 500px;
   width: 100%;
 `;
@@ -129,6 +133,12 @@ export const RecipeNutrient = styled.li`
   margin-bottom: 20px;
 `;
 
+export const RecipeButtons = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+`;
+
 export const RecipeButton = styled.a`
   width: 100%;
   max-width: 150px;
@@ -148,10 +158,31 @@ export const RecipeButton = styled.a`
   }
 `;
 
+export const RecipeButton2 = styled.a`
+  width: 100%;
+  max-width: 150px;
+  padding: 10px;
+  border: none;
+  border-radius: 15px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  background: #34a0a4;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    background: #168aad;
+  }
+`;
+
+
+
 export const RecipeIcon = styled(IconUp)`
   width: 40px;
   height: 40px;
-  fill: #76c893;
+  fill: #34a0a4;
   align-self: center;
   cursor: pointer;
 

@@ -66,7 +66,7 @@ export const ResultData = styled.span`
 export const ResultIcon = styled(IconUp)`
   width: 40px;
   height: 40px;
-  fill: #76c893;
+  fill: #34a0a4;
   align-self: center;
   cursor: pointer;
 

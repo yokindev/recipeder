@@ -12,7 +12,3 @@ export const LoginImage = styled.img`
     max-width: 512px;
     width: 100%;
 `;
-
-export const LoginButton = styled.button`
-
-`;

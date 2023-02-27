@@ -19,6 +19,8 @@ import {
   RecipeIconServings,
   RecipeIconCalories,
   RecipeIconExclamation,
+  RecipeButtons,
+  RecipeButton2,
 } from "./Recipe.styles";
 
 export const Recipe = ({ id, setId }) => {
@@ -54,14 +56,16 @@ export const Recipe = ({ id, setId }) => {
                   </RecipeInfoText>
                 </RecipeInfoSection>
               </RecipeInfo>
-              <RecipeButton
-                href={recipe.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Instructions
-              </RecipeButton>
-              <RecipeButton onClick={() => setId(null)}>Back</RecipeButton>
+              <RecipeButtons>
+                <RecipeButton
+                  href={recipe.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Instructions
+                </RecipeButton>
+                <RecipeButton2 onClick={() => setId(null)}>Back</RecipeButton2>
+              </RecipeButtons>
             </RecipeMainDiv>
           </RecipeWrapper>
           <RecipeWrapper>
