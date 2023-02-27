@@ -8,6 +8,8 @@ import {
   NavBarForm,
   NavBarInput,
   NavBarButtonSearch,
+  NavBarButtonMenu,
+  NavBarDropdown,
 } from "./NavBar.styles";
 
 import ImageLogo from "../../../assets/images/chef-hat.png";
@@ -17,8 +19,13 @@ import { useState } from "react";
 export const NavBar = ({ setData, setId }) => {
   const auth = getAuth();
 
+  const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const links = ["American", "Asian", "Italian", "Mediterranean", "Mexican"];
+
+  const handleOpen = () => {
+    setOpen(!open);
+  };
 
   const searchRecipe = async (e) => {
     e.preventDefault();
@@ -46,6 +53,7 @@ export const NavBar = ({ setData, setId }) => {
       );
       const json = await res.json();
       setData(json.hits);
+      setOpen(false)
       setId(null);
     } catch (error) {
       console.log(error);
@@ -57,6 +65,25 @@ export const NavBar = ({ setData, setId }) => {
       <NavBarLogo>
         <NavBarLogoImage src={ImageLogo} />
       </NavBarLogo>
+      <NavBarDropdown>
+        <NavBarButtonMenu onClick={() => handleOpen()} />
+        {open ? (
+          <NavBarLinks>
+            {links.map((link, index) => (
+              <NavBarLink
+                key={index}
+                onClick={() => {
+                  searchType(link);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
+                {link}
+              </NavBarLink>
+            ))}
+          </NavBarLinks>
+        ) : null}
+      </NavBarDropdown>
+
       <NavBarForm onSubmit={searchRecipe}>
         <NavBarInput
           type="text"
@@ -66,19 +93,7 @@ export const NavBar = ({ setData, setId }) => {
         />
         <NavBarButtonSearch type="submit" alt="IconSearch" />
       </NavBarForm>
-      <NavBarLinks>
-        {links.map((link, index) => (
-          <NavBarLink
-            key={index}
-            onClick={() => {
-              searchType(link);
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-          >
-            {link}
-          </NavBarLink>
-        ))}
-      </NavBarLinks>
+
       <NavBarButtonLogout
         onClick={() => {
           auth.signOut();

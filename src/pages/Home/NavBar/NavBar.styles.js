@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as IconLogout } from "../../../assets/svg/power.svg";
 import { ReactComponent as IconSearch } from "../../../assets/svg/search.svg";
+import { ReactComponent as IconMenu } from "../../../assets/svg/menu-burger.svg";
 
 export const NavBarContainer = styled.div`
   padding: 20px;
@@ -49,21 +50,33 @@ export const NavBarButtonSearch = styled(IconSearch)`
   }
 `;
 
+export const NavBarDropdown = styled.div`
+  position: relative;
+`;
+
+export const NavBarButtonMenu = styled(IconMenu)`
+  width: 30px;
+  height: 30px;
+  fill: #ffffff;
+  cursor: pointer;
+
+  :hover {
+    fill: #34a0a4;
+  }
+`;
+
 export const NavBarLinks = styled.ul`
+  position: absolute;
   display: flex;
-  justify-content: space-evenly;
-  max-width: 700px;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+  flex-direction: column;
   list-style-type: none;
+  padding: 0;
+  background: #168aad;
 `;
 
 export const NavBarLink = styled.li`
-  padding: 14px 16px;
+  padding: 14px 14px 14px 10px;
   color: white;
-  text-align: center;
   text-decoration: none;
   font-size: 20px;
   font-weight: 800;
