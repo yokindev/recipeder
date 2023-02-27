@@ -4,10 +4,18 @@ import { ReactComponent as IconSearch } from "../../../assets/svg/search.svg";
 import { ReactComponent as IconMenu } from "../../../assets/svg/menu-burger.svg";
 
 export const NavBarContainer = styled.div`
-  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px;
+`;
+
+export const NavBarDiv = styled.div`
+  display: flex;
+  align-items: center;
+  max-width: 1000px;
+  width: 100%;
+  margin-right: 20px;
 `;
 
 export const NavBarLogo = styled.button`
@@ -20,11 +28,52 @@ export const NavBarLogoImage = styled.img`
   width: 50px;
 `;
 
+export const NavBarDropdown = styled.div`
+  position: relative;
+  margin-right: 20px;
+`;
+
+export const NavBarButtonMenu = styled(IconMenu)`
+  width: 30px;
+  height: 30px;
+  fill: #ffffff;
+  cursor: pointer;
+
+  :hover {
+    fill: #34a0a4;
+  }
+`;
+
+export const NavBarLinks = styled.ul`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  margin-left: -20px;
+  margin-top: 25px;
+  padding: 0;
+  border-radius: 0px 0px 20px 0px;
+  background: #168aad;
+`;
+
+export const NavBarLink = styled.li`
+  padding: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 800;
+  cursor: pointer;
+
+  :hover {
+    color: #34a0a4;
+  }
+`;
+
 export const NavBarForm = styled.form`
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 600px;
+  max-width: 1000px;
   border: none;
   border-radius: 20px;
   padding: 10px 20px 10px 20px;
@@ -50,44 +99,7 @@ export const NavBarButtonSearch = styled(IconSearch)`
   }
 `;
 
-export const NavBarDropdown = styled.div`
-  position: relative;
-`;
-
-export const NavBarButtonMenu = styled(IconMenu)`
-  width: 30px;
-  height: 30px;
-  fill: #ffffff;
-  cursor: pointer;
-
-  :hover {
-    fill: #34a0a4;
-  }
-`;
-
-export const NavBarLinks = styled.ul`
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  list-style-type: none;
-  padding: 0;
-  background: #168aad;
-`;
-
-export const NavBarLink = styled.li`
-  padding: 14px 14px 14px 10px;
-  color: white;
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: 800;
-  cursor: pointer;
-
-  :hover {
-    color: #34a0a4;
-  }
-`;
-
-export const NavBarButtonLogout = styled(IconLogout)`
+export const NavBarButtonSingOut = styled(IconLogout)`
   width: 30px;
   height: 30px;
   fill: #ffffff;

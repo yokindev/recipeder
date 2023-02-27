@@ -4,24 +4,34 @@ import {
   NavBarLogoImage,
   NavBarLinks,
   NavBarLink,
-  NavBarButtonLogout,
   NavBarForm,
   NavBarInput,
   NavBarButtonSearch,
   NavBarButtonMenu,
   NavBarDropdown,
+  NavBarButtonSingOut,
+  NavBarDiv,
 } from "./NavBar.styles";
 
 import ImageLogo from "../../../assets/images/chef-hat.png";
 import { getAuth } from "firebase/auth";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export const NavBar = ({ setData, setId }) => {
   const auth = getAuth();
 
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
+
   const links = ["American", "Asian", "Italian", "Mediterranean", "Mexican"];
+
+  const menu = useRef(null);
+  const closeMenu = (e) => {
+    if (menu.current && open && !menu.current.contains(e.target)) {
+      setOpen(false);
+    }
+  };
+  document.addEventListener("mousedown", closeMenu);
 
   const handleOpen = () => {
     setOpen(!open);
@@ -62,39 +72,42 @@ export const NavBar = ({ setData, setId }) => {
 
   return (
     <NavBarContainer>
-      <NavBarLogo>
-        <NavBarLogoImage src={ImageLogo} />
-      </NavBarLogo>
-      <NavBarDropdown>
-        <NavBarButtonMenu onClick={() => handleOpen()} />
-        {open ? (
-          <NavBarLinks>
-            {links.map((link, index) => (
-              <NavBarLink
-                key={index}
-                onClick={() => {
-                  searchType(link);
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
-              >
-                {link}
-              </NavBarLink>
-            ))}
-          </NavBarLinks>
-        ) : null}
-      </NavBarDropdown>
+      <NavBarDiv>
+        {/* <NavBarLogo>
+          <NavBarLogoImage src={ImageLogo} />
+        </NavBarLogo> */}
 
-      <NavBarForm onSubmit={searchRecipe}>
-        <NavBarInput
-          type="text"
-          placeholder="Let's find out"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        <NavBarButtonSearch type="submit" alt="IconSearch" />
-      </NavBarForm>
+        <NavBarDropdown ref={menu}>
+          <NavBarButtonMenu onClick={() => handleOpen()} />
+          {open ? (
+            <NavBarLinks>
+              {links.map((link, index) => (
+                <NavBarLink
+                  key={index}
+                  onClick={() => {
+                    searchType(link);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                >
+                  {link}
+                </NavBarLink>
+              ))}
+            </NavBarLinks>
+          ) : null}
+        </NavBarDropdown>
 
-      <NavBarButtonLogout
+        <NavBarForm onSubmit={searchRecipe}>
+          <NavBarInput
+            type="text"
+            placeholder="Search ..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <NavBarButtonSearch type="submit" alt="IconSearch" />
+        </NavBarForm>
+      </NavBarDiv>
+
+      <NavBarButtonSingOut
         onClick={() => {
           auth.signOut();
         }}
