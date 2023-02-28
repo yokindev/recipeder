@@ -12,6 +12,9 @@ import {
   NavBarProfile,
   NavBarProfileName,
   NavBarProfilePhoto,
+  NavBarSignOut,
+  NavBarSignOutDiv,
+  NavBarSignOutName,
 } from "./NavBar.styles";
 
 import ImageLogo from "../../../assets/images/chef-hat.png";
@@ -125,7 +128,7 @@ export const NavBar = ({ user, setData, setId }) => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-          <NavBarButtonSearch type="submit" alt="IconSearch" />
+          <NavBarButtonSearch onClick={searchRecipe} alt="IconSearch" />
         </NavBarForm>
       </NavBarDiv>
 
@@ -138,11 +141,16 @@ export const NavBar = ({ user, setData, setId }) => {
               onClick={() => handleOpenProfile()}
             />
             {openProfile ? (
-              <NavBarButtonSingOut
-                onClick={() => {
-                  auth.signOut();
-                }}
-              />
+              <NavBarSignOutDiv>
+                <NavBarSignOut>
+                  <NavBarSignOutName>Sign out</NavBarSignOutName>
+                  <NavBarButtonSingOut
+                    onClick={() => {
+                      auth.signOut();
+                    }}
+                  />
+                </NavBarSignOut>
+              </NavBarSignOutDiv>
             ) : null}
           </NavBarDropdown>
         </NavBarProfile>

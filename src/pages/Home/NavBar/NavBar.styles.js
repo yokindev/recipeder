@@ -21,8 +21,7 @@ export const NavBarLogo = styled.img`
   cursor: pointer;
 `;
 
-export const NavBarDropdown = styled.div`
-`;
+export const NavBarDropdown = styled.div``;
 
 export const NavBarLinks = styled.ul`
   position: absolute;
@@ -100,8 +99,22 @@ export const NavBarProfilePhoto = styled.img`
   cursor: pointer;
 `;
 
-export const NavBarButtonSingOut = styled(IconLogout)`
+export const NavBarSignOutDiv = styled.div`
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: #168aad;
+`;
+
+export const NavBarSignOut = styled.div`
+  display: flex;
+`;
+
+export const NavBarSignOutName = styled.p`
+  color: white;
+`;
+
+export const NavBarButtonSingOut = styled(IconLogout)`
   width: 30px;
   height: 30px;
   fill: #ffffff;
