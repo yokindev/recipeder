@@ -1,13 +1,11 @@
 import {
   NavBarContainer,
   NavBarLogo,
-  NavBarLogoImage,
   NavBarLinks,
   NavBarLink,
   NavBarForm,
   NavBarInput,
   NavBarButtonSearch,
-  NavBarButtonMenu,
   NavBarDropdown,
   NavBarButtonSingOut,
   NavBarDiv,
@@ -63,7 +61,7 @@ export const NavBar = ({ setData, setId }) => {
       );
       const json = await res.json();
       setData(json.hits);
-      setOpen(false)
+      setOpen(false);
       setId(null);
     } catch (error) {
       console.log(error);
@@ -73,12 +71,8 @@ export const NavBar = ({ setData, setId }) => {
   return (
     <NavBarContainer>
       <NavBarDiv>
-        {/* <NavBarLogo>
-          <NavBarLogoImage src={ImageLogo} />
-        </NavBarLogo> */}
-
         <NavBarDropdown ref={menu}>
-          <NavBarButtonMenu onClick={() => handleOpen()} />
+          <NavBarLogo src={ImageLogo} onClick={() => handleOpen()} />
           {open ? (
             <NavBarLinks>
               {links.map((link, index) => (

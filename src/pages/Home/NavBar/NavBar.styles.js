@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as IconLogout } from "../../../assets/svg/power.svg";
 import { ReactComponent as IconSearch } from "../../../assets/svg/search.svg";
-import { ReactComponent as IconMenu } from "../../../assets/svg/menu-burger.svg";
 
 export const NavBarContainer = styled.div`
   display: flex;
@@ -18,30 +17,14 @@ export const NavBarDiv = styled.div`
   margin-right: 20px;
 `;
 
-export const NavBarLogo = styled.button`
-  border: none;
-  background: none;
-  cursor: pointer;
-`;
-
-export const NavBarLogoImage = styled.img`
+export const NavBarLogo = styled.img`
   width: 50px;
+  cursor: pointer;
 `;
 
 export const NavBarDropdown = styled.div`
   position: relative;
   margin-right: 20px;
-`;
-
-export const NavBarButtonMenu = styled(IconMenu)`
-  width: 30px;
-  height: 30px;
-  fill: #ffffff;
-  cursor: pointer;
-
-  :hover {
-    fill: #34a0a4;
-  }
 `;
 
 export const NavBarLinks = styled.ul`
@@ -50,7 +33,6 @@ export const NavBarLinks = styled.ul`
   flex-direction: column;
   list-style-type: none;
   margin-left: -20px;
-  margin-top: 25px;
   padding: 0;
   border-radius: 0px 0px 20px 0px;
   background: #168aad;

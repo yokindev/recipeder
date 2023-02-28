@@ -6,8 +6,6 @@ export const HomeTopBar = styled.div`
   position: sticky;
   top: 0px;
   background: #168aad;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
 `;
 
 export const HomeFooter = styled.div`
@@ -16,7 +14,6 @@ export const HomeFooter = styled.div`
   align-items: center;
   width: 100%;
   height: 100px;
-  // position: sticky;
   bottom: 0px;
   border-top: 1px solid #34a0a4;
   background: white;

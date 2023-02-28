@@ -20,6 +20,10 @@ export const RecipeCard = styled.div`
   border-radius: 20px;
   padding: 40px;
   background-color: #f0f0f0;
+
+  @media (max-width: 500px) {
+    padding: 20px;
+  }
 `;
 
 export const RecipeWrapper = styled.div`
@@ -176,8 +180,6 @@ export const RecipeButton2 = styled.a`
     background: #168aad;
   }
 `;
-
-
 
 export const RecipeIcon = styled(IconUp)`
   width: 40px;
