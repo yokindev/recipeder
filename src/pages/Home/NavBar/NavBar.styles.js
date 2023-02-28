@@ -25,12 +25,12 @@ export const NavBarDropdown = styled.div``;
 
 export const NavBarLinks = styled.ul`
   position: absolute;
+  left: 0;
   display: flex;
   flex-direction: column;
   list-style-type: none;
-  margin-left: -20px;
+  margin-top: 20px;
   padding: 0;
-  border-radius: 0px 0px 20px 0px;
   background: #168aad;
 `;
 
@@ -43,7 +43,7 @@ export const NavBarLink = styled.li`
   cursor: pointer;
 
   :hover {
-    color: #34a0a4;
+    background: #34a0a4;
   }
 `;
 
@@ -70,7 +70,7 @@ export const NavBarInput = styled.input`
 export const NavBarButtonSearch = styled(IconSearch)`
   width: 25px;
   height: 25px;
-  fill: #34a0a4;
+  fill: #52b69a;
   cursor: pointer;
 
   :hover {
@@ -86,7 +86,8 @@ export const NavBarProfile = styled.div`
 export const NavBarProfileName = styled.h3`
   color: white;
   margin: 0;
-  margin-right: 20px;
+  margin-right: 10px;
+  cursor: pointer;
 
   @media (max-width: 650px) {
     display: none;
@@ -99,28 +100,31 @@ export const NavBarProfilePhoto = styled.img`
   cursor: pointer;
 `;
 
-export const NavBarSignOutDiv = styled.div`
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  background: #168aad;
-`;
-
 export const NavBarSignOut = styled.div`
+  position: absolute;
+  right: 0;
   display: flex;
-`;
-
-export const NavBarSignOutName = styled.p`
-  color: white;
-`;
-
-export const NavBarButtonSingOut = styled(IconLogout)`
-  width: 30px;
-  height: 30px;
-  fill: #ffffff;
+  align-items: center;
+  margin-top: 25px;
+  padding: 20px 30px 20px 30px;
+  background: #168aad;
   cursor: pointer;
 
   :hover {
-    fill: #34a0a4;
+    background: #34a0a4;
   }
+`;
+
+export const NavBarSignOutName = styled.p`
+  font-size: 18px;
+  color: white;
+  margin: 0;
+  margin-right: 10px;
+  
+`;
+
+export const NavBarButtonSingOut = styled(IconLogout)`
+  width: 20px;
+  height: 20px;
+  fill: #ffffff;
 `;

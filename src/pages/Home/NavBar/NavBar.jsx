@@ -13,7 +13,6 @@ import {
   NavBarProfileName,
   NavBarProfilePhoto,
   NavBarSignOut,
-  NavBarSignOutDiv,
   NavBarSignOutName,
 } from "./NavBar.styles";
 
@@ -133,27 +132,22 @@ export const NavBar = ({ user, setData, setId }) => {
       </NavBarDiv>
 
       <NavBarDiv>
-        <NavBarProfile>
-          <NavBarProfileName>{user.displayName}</NavBarProfileName>
-          <NavBarDropdown ref={profile}>
-            <NavBarProfilePhoto
-              src={user.photoURL}
-              onClick={() => handleOpenProfile()}
-            />
-            {openProfile ? (
-              <NavBarSignOutDiv>
-                <NavBarSignOut>
-                  <NavBarSignOutName>Sign out</NavBarSignOutName>
-                  <NavBarButtonSingOut
-                    onClick={() => {
-                      auth.signOut();
-                    }}
-                  />
-                </NavBarSignOut>
-              </NavBarSignOutDiv>
-            ) : null}
-          </NavBarDropdown>
-        </NavBarProfile>
+        <NavBarDropdown ref={profile}>
+          <NavBarProfile onClick={() => handleOpenProfile()}>
+            <NavBarProfileName>{user.displayName}</NavBarProfileName>
+            <NavBarProfilePhoto src={user.photoURL} />
+          </NavBarProfile>
+          {openProfile ? (
+            <NavBarSignOut>
+              <NavBarSignOutName>Sign out</NavBarSignOutName>
+              <NavBarButtonSingOut
+                onClick={() => {
+                  auth.signOut();
+                }}
+              />
+            </NavBarSignOut>
+          ) : null}
+        </NavBarDropdown>
       </NavBarDiv>
     </NavBarContainer>
   );
