@@ -13,8 +13,8 @@ function App() {
       setUser(user);
     });
   }, [auth]);
- console.log(user);
-  return <>{user ? <Home /> : <Login setUser={setUser}/>}</>;
+  console.log(user);
+  return <>{user ? <Home user={user} /> : <Login setUser={setUser} />}</>;
 }
 
 export default App;

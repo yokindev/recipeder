@@ -11,20 +11,17 @@ export const NavBarContainer = styled.div`
 
 export const NavBarDiv = styled.div`
   display: flex;
+  justify-content: flex-end;
   align-items: center;
-  max-width: 1000px;
-  width: 100%;
-  margin-right: 20px;
 `;
 
 export const NavBarLogo = styled.img`
   width: 50px;
+  margin-right: 20px;
   cursor: pointer;
 `;
 
 export const NavBarDropdown = styled.div`
-  position: relative;
-  margin-right: 20px;
 `;
 
 export const NavBarLinks = styled.ul`
@@ -58,6 +55,7 @@ export const NavBarForm = styled.form`
   max-width: 1000px;
   border: none;
   border-radius: 20px;
+  margin-right: 20px;
   padding: 10px 20px 10px 20px;
   background: white;
 `;
@@ -81,7 +79,29 @@ export const NavBarButtonSearch = styled(IconSearch)`
   }
 `;
 
+export const NavBarProfile = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const NavBarProfileName = styled.h3`
+  color: white;
+  margin: 0;
+  margin-right: 20px;
+
+  @media (max-width: 650px) {
+    display: none;
+  }
+`;
+
+export const NavBarProfilePhoto = styled.img`
+  width: 40px;
+  border-radius: 30px;
+  cursor: pointer;
+`;
+
 export const NavBarButtonSingOut = styled(IconLogout)`
+  position: absolute;
   width: 30px;
   height: 30px;
   fill: #ffffff;

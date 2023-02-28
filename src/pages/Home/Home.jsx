@@ -5,7 +5,7 @@ import { Results } from "./Results/Results";
 import { Recipe } from "./Recipe/Recipe";
 import { useState, useEffect } from "react";
 
-export const Home = () => {
+export const Home = ({user}) => {
   const [data, setData] = useState(null);
   const [id, setId] = useState(null);
 
@@ -27,7 +27,7 @@ export const Home = () => {
   return (
     <>
       <HomeTopBar>
-        <NavBar setData={setData} setId={setId} />
+        <NavBar user={user} setData={setData} setId={setId} />
       </HomeTopBar>
 
       {id ? (

@@ -9,31 +9,57 @@ import {
   NavBarDropdown,
   NavBarButtonSingOut,
   NavBarDiv,
+  NavBarProfile,
+  NavBarProfileName,
+  NavBarProfilePhoto,
 } from "./NavBar.styles";
 
 import ImageLogo from "../../../assets/images/chef-hat.png";
 import { getAuth } from "firebase/auth";
 import { useState, useRef } from "react";
 
-export const NavBar = ({ setData, setId }) => {
+export const NavBar = ({ user, setData, setId }) => {
   const auth = getAuth();
 
-  const [open, setOpen] = useState(false);
-  const [query, setQuery] = useState("");
+  // Dropdown Menu
 
-  const links = ["American", "Asian", "Italian", "Mediterranean", "Mexican"];
+  const [openMenu, setOpenMenu] = useState(false);
 
   const menu = useRef(null);
+
   const closeMenu = (e) => {
-    if (menu.current && open && !menu.current.contains(e.target)) {
-      setOpen(false);
+    if (menu.current && openMenu && !menu.current.contains(e.target)) {
+      setOpenMenu(false);
     }
   };
+
   document.addEventListener("mousedown", closeMenu);
 
-  const handleOpen = () => {
-    setOpen(!open);
+  const handleOpenMenu = () => {
+    setOpenMenu(!openMenu);
   };
+
+  // Dropdown Profile
+
+  const [openProfile, setOpenProfile] = useState(false);
+
+  const profile = useRef(null);
+
+  const closeProfile = (e) => {
+    if (profile.current && openProfile && !profile.current.contains(e.target)) {
+      setOpenProfile(false);
+    }
+  };
+
+  document.addEventListener("mousedown", closeProfile);
+
+  const handleOpenProfile = () => {
+    setOpenProfile(!openProfile);
+  };
+
+  // Fetchs
+
+  const [query, setQuery] = useState("");
 
   const searchRecipe = async (e) => {
     e.preventDefault();
@@ -54,6 +80,8 @@ export const NavBar = ({ setData, setId }) => {
     }
   };
 
+  const links = ["American", "Asian", "Italian", "Mediterranean", "Mexican"];
+
   const searchType = async (link) => {
     try {
       const res = await fetch(
@@ -61,7 +89,7 @@ export const NavBar = ({ setData, setId }) => {
       );
       const json = await res.json();
       setData(json.hits);
-      setOpen(false);
+      setOpenMenu(false);
       setId(null);
     } catch (error) {
       console.log(error);
@@ -72,8 +100,8 @@ export const NavBar = ({ setData, setId }) => {
     <NavBarContainer>
       <NavBarDiv>
         <NavBarDropdown ref={menu}>
-          <NavBarLogo src={ImageLogo} onClick={() => handleOpen()} />
-          {open ? (
+          <NavBarLogo src={ImageLogo} onClick={() => handleOpenMenu()} />
+          {openMenu ? (
             <NavBarLinks>
               {links.map((link, index) => (
                 <NavBarLink
@@ -101,11 +129,24 @@ export const NavBar = ({ setData, setId }) => {
         </NavBarForm>
       </NavBarDiv>
 
-      <NavBarButtonSingOut
-        onClick={() => {
-          auth.signOut();
-        }}
-      />
+      <NavBarDiv>
+        <NavBarProfile>
+          <NavBarProfileName>{user.displayName}</NavBarProfileName>
+          <NavBarDropdown ref={profile}>
+            <NavBarProfilePhoto
+              src={user.photoURL}
+              onClick={() => handleOpenProfile()}
+            />
+            {openProfile ? (
+              <NavBarButtonSingOut
+                onClick={() => {
+                  auth.signOut();
+                }}
+              />
+            ) : null}
+          </NavBarDropdown>
+        </NavBarProfile>
+      </NavBarDiv>
     </NavBarContainer>
   );
 };
