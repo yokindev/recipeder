@@ -1,5 +1,4 @@
 import { HomeBadge, HomeFooter, HomeTopBar } from "./Home.styles";
-
 import { NavBar } from "./NavBar/NavBar";
 import { Results } from "./Results/Results";
 import { Recipe } from "./Recipe/Recipe";
