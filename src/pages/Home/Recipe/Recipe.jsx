@@ -28,7 +28,6 @@ export const Recipe = ({ id, setId }) => {
   const { ingredients, totalNutrients } = recipe;
 
   if (id) {
-    console.log(id);
     return (
       <RecipeContainer>
         <RecipeCard>

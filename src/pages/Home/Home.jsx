@@ -4,7 +4,7 @@ import { Results } from "./Results/Results";
 import { Recipe } from "./Recipe/Recipe";
 import { useState, useEffect } from "react";
 
-export const Home = ({user}) => {
+export const Home = ({ user }) => {
   const [data, setData] = useState(null);
   const [id, setId] = useState(null);
 
