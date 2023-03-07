@@ -17,15 +17,14 @@ import {
 } from "./NavBar.styles";
 
 import ImageLogo from "../../../assets/images/chef-hat.png";
-import { getAuth } from "firebase/auth";
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { getAuth } from "firebase/auth";
 
-export const NavBar = ({ setData, setId }) => {
-  const navigate = useNavigate();
+export const NavBar = ({ user, setData, setId }) => {
   const auth = getAuth();
-  const user = auth.currentUser;
-  console.log(user);
+  const navigate = useNavigate();
+  
 
   // Dropdown Menu
 
@@ -102,60 +101,58 @@ export const NavBar = ({ setData, setId }) => {
     }
   };
 
-  if (user) {
-    return (
-      <NavBarContainer>
-        <NavBarDiv>
-          <NavBarDropdown ref={menu}>
-            <NavBarLogo src={ImageLogo} onClick={() => handleOpenMenu()} />
-            {openMenu ? (
-              <NavBarLinks>
-                {links.map((link, index) => (
-                  <NavBarLink
-                    key={index}
-                    onClick={() => {
-                      searchType(link);
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
-                  >
-                    {link}
-                  </NavBarLink>
-                ))}
-              </NavBarLinks>
-            ) : null}
-          </NavBarDropdown>
+  return (
+    <NavBarContainer>
+      <NavBarDiv>
+        <NavBarDropdown ref={menu}>
+          <NavBarLogo src={ImageLogo} onClick={() => handleOpenMenu()} />
+          {openMenu ? (
+            <NavBarLinks>
+              {links.map((link, index) => (
+                <NavBarLink
+                  key={index}
+                  onClick={() => {
+                    searchType(link);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                >
+                  {link}
+                </NavBarLink>
+              ))}
+            </NavBarLinks>
+          ) : null}
+        </NavBarDropdown>
 
-          <NavBarForm onSubmit={searchRecipe}>
-            <NavBarInput
-              type="text"
-              placeholder="Search ..."
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-            <NavBarButtonSearch onClick={searchRecipe} alt="IconSearch" />
-          </NavBarForm>
-        </NavBarDiv>
+        <NavBarForm onSubmit={searchRecipe}>
+          <NavBarInput
+            type="text"
+            placeholder="Search ..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <NavBarButtonSearch onClick={searchRecipe} alt="IconSearch" />
+        </NavBarForm>
+      </NavBarDiv>
 
-        <NavBarDiv>
-          <NavBarDropdown ref={profile}>
-            <NavBarProfile onClick={() => handleOpenProfile()}>
-              <NavBarProfileName>{user.displayName}</NavBarProfileName>
-              <NavBarProfilePhoto src={user.photoURL} />
-            </NavBarProfile>
-            {openProfile ? (
-              <NavBarSignOut
-                onClick={() => {
-                  auth.signOut();
-                  navigate("/");
-                }}
-              >
-                <NavBarSignOutName>Sign out</NavBarSignOutName>
-                <NavBarButtonSingOut />
-              </NavBarSignOut>
-            ) : null}
-          </NavBarDropdown>
-        </NavBarDiv>
-      </NavBarContainer>
-    );
-  }
+      <NavBarDiv>
+        <NavBarDropdown ref={profile}>
+          <NavBarProfile onClick={() => handleOpenProfile()}>
+            <NavBarProfileName>{user.displayName}</NavBarProfileName>
+            <NavBarProfilePhoto src={user.photoURL} />
+          </NavBarProfile>
+          {openProfile ? (
+            <NavBarSignOut
+              onClick={() => {
+                auth.signOut();
+                navigate("/");
+              }}
+            >
+              <NavBarSignOutName>Sign out</NavBarSignOutName>
+              <NavBarButtonSingOut />
+            </NavBarSignOut>
+          ) : null}
+        </NavBarDropdown>
+      </NavBarDiv>
+    </NavBarContainer>
+  );
 };

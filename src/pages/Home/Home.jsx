@@ -1,12 +1,15 @@
 import { HomeBadge, HomeFooter, HomeTopBar } from "./Home.styles";
 import { NavBar } from "./NavBar/NavBar";
 import { Results } from "./Results/Results";
-import { Recipe } from "./Recipe/Recipe";
+import { getAuth } from "firebase/auth";
+import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 export const Home = () => {
+  const auth = getAuth();
+  const user = auth.currentUser;
+
   const [data, setData] = useState(null);
-  const [id, setId] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,21 +26,21 @@ export const Home = () => {
     fetchData();
   }, []);
 
-  return (
-    <>
-      <HomeTopBar>
-        <NavBar setData={setData} setId={setId} />
-      </HomeTopBar>
+  if (user) {
+    return (
+      <>
+        <HomeTopBar>
+          <NavBar user={user} />
+        </HomeTopBar>
 
-      {id ? (
-        <Recipe id={id} setId={setId} />
-      ) : (
-        <Results data={data} setId={setId} />
-      )}
+        <Routes>
+          <Route path="/" element={<Results data={data} />} />
+        </Routes>
 
-      <HomeFooter>
-        <HomeBadge />
-      </HomeFooter>
-    </>
-  );
+        <HomeFooter>
+          <HomeBadge />
+        </HomeFooter>
+      </>
+    );
+  }
 };
