@@ -3,14 +3,10 @@ import { NavBar } from "./NavBar/NavBar";
 import { Results } from "./Results/Results";
 import { Recipe } from "./Recipe/Recipe";
 import { useState, useEffect } from "react";
-import { getAuth } from "firebase/auth";
 
 export const Home = () => {
   const [data, setData] = useState(null);
   const [id, setId] = useState(null);
-
-  const auth = getAuth();
-  const user = auth.currentUser;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,7 +26,7 @@ export const Home = () => {
   return (
     <>
       <HomeTopBar>
-        <NavBar user={user} setData={setData} setId={setId} />
+        <NavBar setData={setData} setId={setId} />
       </HomeTopBar>
 
       {id ? (
