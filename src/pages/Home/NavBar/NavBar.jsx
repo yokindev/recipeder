@@ -19,8 +19,10 @@ import {
 import ImageLogo from "../../../assets/images/chef-hat.png";
 import { getAuth } from "firebase/auth";
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const NavBar = ({ user, setData, setId }) => {
+  const navigate = useNavigate();
   const auth = getAuth();
 
   // Dropdown Menu
@@ -143,6 +145,7 @@ export const NavBar = ({ user, setData, setId }) => {
               <NavBarButtonSingOut
                 onClick={() => {
                   auth.signOut();
+                  navigate("/");
                 }}
               />
             </NavBarSignOut>

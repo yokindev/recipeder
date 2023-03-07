@@ -3,10 +3,14 @@ import { NavBar } from "./NavBar/NavBar";
 import { Results } from "./Results/Results";
 import { Recipe } from "./Recipe/Recipe";
 import { useState, useEffect } from "react";
+import { getAuth } from "firebase/auth";
 
-export const Home = ({ user }) => {
+export const Home = () => {
   const [data, setData] = useState(null);
   const [id, setId] = useState(null);
+
+  const auth = getAuth();
+  const user = auth.currentUser;
 
   useEffect(() => {
     const fetchData = async () => {
