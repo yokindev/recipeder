@@ -63,6 +63,7 @@ export const NavBar = ({ user, setData, setId }) => {
 
   // Functions
 
+  const links = ["American", "Asian", "Italian", "Mediterranean", "Mexican"];
   const [query, setQuery] = useState("");
 
   const handleOnChange = (e) => {
@@ -79,22 +80,6 @@ export const NavBar = ({ user, setData, setId }) => {
     }
   };
 
-  const links = ["American", "Asian", "Italian", "Mediterranean", "Mexican"];
-
-  const searchType = async (link) => {
-    try {
-      const res = await fetch(
-        `${process.env.REACT_APP_API_URL}?type=public&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}&cuisineType=${link}&random=true`
-      );
-      const json = await res.json();
-      setData(json.hits);
-      setOpenMenu(false);
-      setId(null);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <NavBarContainer>
       <NavBarDiv>
@@ -106,8 +91,9 @@ export const NavBar = ({ user, setData, setId }) => {
                 <NavBarLink
                   key={index}
                   onClick={() => {
-                    searchType(link);
+                    setOpenMenu(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
+                    navigate(`type/${link}`, { state: { link } });
                   }}
                 >
                   {link}
@@ -124,7 +110,11 @@ export const NavBar = ({ user, setData, setId }) => {
             value={query}
             onChange={handleOnChange}
           />
-          <NavBarButtonSearch onClick={handleSubmit} type="submit" alt="IconSearch" />
+          <NavBarButtonSearch
+            onClick={handleSubmit}
+            type="submit"
+            alt="IconSearch"
+          />
         </NavBarForm>
       </NavBarDiv>
 
