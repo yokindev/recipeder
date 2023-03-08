@@ -36,7 +36,7 @@ export const Home = () => {
 
         <Routes>
           <Route path="/" element={<Results data={data} />} />
-          <Route path="search" element={<Search />} />
+          <Route path="search/:query" element={<Search />} />
         </Routes>
 
         <HomeFooter>

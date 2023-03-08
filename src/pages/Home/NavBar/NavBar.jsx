@@ -73,7 +73,7 @@ export const NavBar = ({ user, setData, setId }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
-    navigate("search", {state: {query}});
+    navigate(`search/${query}`, {state: {query}});
     setQuery("");
   };
 
