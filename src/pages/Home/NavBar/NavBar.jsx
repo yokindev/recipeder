@@ -72,9 +72,11 @@ export const NavBar = ({ user, setData, setId }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    navigate(`search/${query}`, {state: {query}});
-    setQuery("");
+    if (query) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      navigate(`search/${query}`, { state: { query } });
+      setQuery("");
+    }
   };
 
   const links = ["American", "Asian", "Italian", "Mediterranean", "Mexican"];
@@ -122,7 +124,7 @@ export const NavBar = ({ user, setData, setId }) => {
             value={query}
             onChange={handleOnChange}
           />
-          <NavBarButtonSearch type="submit" alt="IconSearch" />
+          <NavBarButtonSearch onClick={handleSubmit} type="submit" alt="IconSearch" />
         </NavBarForm>
       </NavBarDiv>
 
