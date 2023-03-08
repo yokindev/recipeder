@@ -4,6 +4,7 @@ import { Results } from "./Results/Results";
 import { getAuth } from "firebase/auth";
 import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Search } from "./Search";
 
 export const Home = () => {
   const auth = getAuth();
@@ -35,6 +36,7 @@ export const Home = () => {
 
         <Routes>
           <Route path="/" element={<Results data={data} />} />
+          <Route path="search" element={<Search />} />
         </Routes>
 
         <HomeFooter>

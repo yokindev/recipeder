@@ -24,7 +24,6 @@ import { getAuth } from "firebase/auth";
 export const NavBar = ({ user, setData, setId }) => {
   const auth = getAuth();
   const navigate = useNavigate();
-  
 
   // Dropdown Menu
 
@@ -62,27 +61,20 @@ export const NavBar = ({ user, setData, setId }) => {
     setOpenProfile(!openProfile);
   };
 
-  // Fetchs
+  // Functions
 
   const [query, setQuery] = useState("");
 
-  const searchRecipe = async (e) => {
+  const handleOnChange = (e) => {
     e.preventDefault();
-    if (query) {
-      try {
-        const res = await fetch(
-          `${process.env.REACT_APP_API_URL}?type=public&q=${query}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`
-        );
-        const json = await res.json();
-        setData(json.hits);
-        setId(null);
-      } catch (error) {
-        console.log(error);
-      }
+    setQuery(e.target.value);
+  };
 
-      setQuery("");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    navigate("search", {state: {query}});
+    setQuery("");
   };
 
   const links = ["American", "Asian", "Italian", "Mediterranean", "Mexican"];
@@ -123,14 +115,14 @@ export const NavBar = ({ user, setData, setId }) => {
           ) : null}
         </NavBarDropdown>
 
-        <NavBarForm onSubmit={searchRecipe}>
+        <NavBarForm onSubmit={handleSubmit}>
           <NavBarInput
             type="text"
             placeholder="Search ..."
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={handleOnChange}
           />
-          <NavBarButtonSearch onClick={searchRecipe} alt="IconSearch" />
+          <NavBarButtonSearch type="submit" alt="IconSearch" />
         </NavBarForm>
       </NavBarDiv>
 
