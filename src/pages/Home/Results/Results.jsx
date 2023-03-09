@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
   ResultCard,
   ResultImage,
@@ -10,7 +11,9 @@ import {
   ResultIcon,
 } from "./Results.styles";
 
-export const Results = ({ data, setId }) => {
+export const Results = ({ data }) => {
+  const navigate = useNavigate();
+
   if (data) {
     return (
       <ResultsDiv>
@@ -19,8 +22,7 @@ export const Results = ({ data, setId }) => {
             <ResultCard
               key={index}
               onClick={() => {
-                setId(option);
-                window.scrollTo({ top: 0 });
+                navigate(`recipe/${option.recipe.label}`, { state: { option } });
               }}
             >
               <ResultImage src={option.recipe.image} alt="ImageRecipe" />

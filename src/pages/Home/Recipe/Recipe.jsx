@@ -22,12 +22,18 @@ import {
   RecipeButtons,
   RecipeButton2,
 } from "./Recipe.styles";
+import { useNavigate, useLocation } from "react-router-dom";
 
-export const Recipe = ({ id, setId }) => {
-  const { recipe } = id;
+export const Recipe = () => {
+  const navigate = useNavigate();
+
+  const { state } = useLocation();
+  const { option } = state;
+  console.log(option);
+  const { recipe } = option;
   const { ingredients, totalNutrients } = recipe;
 
-  if (id) {
+  if (recipe) {
     return (
       <RecipeContainer>
         <RecipeCard>
@@ -63,7 +69,7 @@ export const Recipe = ({ id, setId }) => {
                 >
                   Instructions
                 </RecipeButton>
-                <RecipeButton2 onClick={() => setId(null)}>Back</RecipeButton2>
+                <RecipeButton2 onClick={() => navigate()}>Back</RecipeButton2>
               </RecipeButtons>
             </RecipeMainDiv>
           </RecipeWrapper>

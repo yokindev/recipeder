@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Search } from "./Search";
 import { Type } from "./Type";
+import { Recipe } from "./Recipe/Recipe";
 
 export const Home = () => {
   const auth = getAuth();
@@ -36,7 +37,10 @@ export const Home = () => {
         </HomeTopBar>
 
         <Routes>
-          <Route path="/" element={<Results data={data} />} />
+          <Route path="/" element={<Results data={data} />}>
+            {" "}
+            <Route path="recipe/:recipe" element={<Recipe />} />
+          </Route>
           <Route path="search/:query" element={<Search />} />
           <Route path="type/:link" element={<Type />} />
         </Routes>
