@@ -22,7 +22,11 @@ export const Results = ({ data }) => {
             <ResultCard
               key={index}
               onClick={() => {
-                navigate(`recipe/${option.recipe.label}`, { state: { option } });
+                console.log(option);
+                navigate(`${option.recipe.label}`, {
+                  state: { option },
+                });
+                window.scrollTo({ top: 0 });
               }}
             >
               <ResultImage src={option.recipe.image} alt="ImageRecipe" />

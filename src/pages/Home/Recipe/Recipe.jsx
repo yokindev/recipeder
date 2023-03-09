@@ -33,7 +33,7 @@ export const Recipe = () => {
   const { recipe } = option;
   const { ingredients, totalNutrients } = recipe;
 
-  if (recipe) {
+  if (option) {
     return (
       <RecipeContainer>
         <RecipeCard>
@@ -69,7 +69,7 @@ export const Recipe = () => {
                 >
                   Instructions
                 </RecipeButton>
-                <RecipeButton2 onClick={() => navigate()}>Back</RecipeButton2>
+                <RecipeButton2 onClick={() => navigate(-1)}>Back</RecipeButton2>
               </RecipeButtons>
             </RecipeMainDiv>
           </RecipeWrapper>
