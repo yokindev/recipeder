@@ -21,7 +21,7 @@ import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 
-export const NavBar = ({ user }) => {
+export const NavBar = ({ user, setData }) => {
   const auth = getAuth();
   const navigate = useNavigate();
 
@@ -75,8 +75,33 @@ export const NavBar = ({ user }) => {
     e.preventDefault();
     if (query) {
       window.scrollTo({ top: 0, behavior: "smooth" });
-      navigate(`search/${query}`, { state: { query } });
+      fetchQuery(query);
+      navigate(`search/${query}`);
       setQuery("");
+    }
+  };
+
+  const fetchQuery = async (query) => {
+    try {
+      const res = await fetch(
+        `${process.env.REACT_APP_API_URL}?type=public&q=${query}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`
+      );
+      const json = await res.json();
+      setData(json.hits);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const fetchType = async (link) => {
+    try {
+      const res = await fetch(
+        `${process.env.REACT_APP_API_URL}?type=public&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}&cuisineType=${link}`
+      );
+      const json = await res.json();
+      setData(json.hits);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -93,7 +118,8 @@ export const NavBar = ({ user }) => {
                   onClick={() => {
                     setOpenMenu(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
-                    navigate(`type/${link}`, { state: { link } });
+                    fetchType(link);
+                    navigate(`type/${link}`);
                   }}
                 >
                   {link}

@@ -4,8 +4,6 @@ import { Results } from "./Results/Results";
 import { getAuth } from "firebase/auth";
 import { Outlet, Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Search } from "./Search";
-import { Type } from "./Type";
 import { Recipe } from "./Recipe/Recipe";
 
 export const Home = () => {
@@ -33,13 +31,13 @@ export const Home = () => {
     return (
       <>
         <HomeTopBar>
-          <NavBar user={user} />
+          <NavBar user={user} setData={setData} />
         </HomeTopBar>
 
         <Routes>
           <Route path="/" element={<Results data={data} />} />
-          <Route path="search/:query" element={<Search />} />
-          <Route path="type/:link" element={<Type />} />
+          <Route path="search/:query" element={<Results data={data}/>} />
+          <Route path="type/:link" element={<Results data={data}/>} />
           <Route path="recipe/:name" element={<Recipe />} />
         </Routes>
         <Outlet />
