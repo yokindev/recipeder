@@ -5,11 +5,14 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { FirebaseAppProvider } from "reactfire";
 import { firebase } from "./services/firebase";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <FirebaseAppProvider firebaseConfig={firebase}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </FirebaseAppProvider>
 );
 

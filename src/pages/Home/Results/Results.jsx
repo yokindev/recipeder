@@ -22,8 +22,7 @@ export const Results = ({ data }) => {
             <ResultCard
               key={index}
               onClick={() => {
-                console.log(option);
-                navigate(`recipe/${option.recipe.label}`, {
+                navigate(`../recipe/${option.recipe.label}`, {
                   state: { option },
                 });
                 window.scrollTo({ top: 0 });
