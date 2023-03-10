@@ -40,7 +40,7 @@ export const Home = () => {
           <Route path="/" element={<Results data={data} />} />
           <Route path="search/:query" element={<Search />} />
           <Route path="type/:link" element={<Type />} />
-          <Route path=":recipe" element={<Recipe />} />
+          <Route path="recipe/:name" element={<Recipe />} />
         </Routes>
         <Outlet />
         <HomeFooter>

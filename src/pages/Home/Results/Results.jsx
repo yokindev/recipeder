@@ -23,7 +23,7 @@ export const Results = ({ data }) => {
               key={index}
               onClick={() => {
                 console.log(option);
-                navigate(`${option.recipe.label}`, {
+                navigate(`recipe/${option.recipe.label}`, {
                   state: { option },
                 });
                 window.scrollTo({ top: 0 });

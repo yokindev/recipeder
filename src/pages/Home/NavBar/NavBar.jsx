@@ -21,7 +21,7 @@ import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 
-export const NavBar = ({ user, setData, setId }) => {
+export const NavBar = ({ user }) => {
   const auth = getAuth();
   const navigate = useNavigate();
 
