@@ -21,7 +21,7 @@ import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 
-export const NavBar = ({ user, setQueryData, setTypeData }) => {
+export const NavBar = ({ user }) => {
   const auth = getAuth();
   const navigate = useNavigate();
 
@@ -76,7 +76,6 @@ export const NavBar = ({ user, setQueryData, setTypeData }) => {
     if (query) {
       window.scrollTo({ top: 0, behavior: "smooth" });
       fetchQuery(query);
-      navigate(`search/${query}`);
       setQuery("");
     }
   };
@@ -93,7 +92,8 @@ export const NavBar = ({ user, setQueryData, setTypeData }) => {
         `${process.env.REACT_APP_API_URL}?type=public&q=${query}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`
       );
       const json = await res.json();
-      setQueryData(json.hits);
+      const queryData = json.hits;
+      navigate(`search/${query}`, { state: { queryData } });
     } catch (error) {
       console.log(error);
     }
@@ -105,8 +105,8 @@ export const NavBar = ({ user, setQueryData, setTypeData }) => {
         `${process.env.REACT_APP_API_URL}?type=public&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}&cuisineType=${link}`
       );
       const json = await res.json();
-      setTypeData(json.hits);
-      navigate(`type/${link}`);
+      const typeData = json.hits;
+      navigate(`type/${link}`, { state: { typeData } });
     } catch (error) {
       console.log(error);
     }

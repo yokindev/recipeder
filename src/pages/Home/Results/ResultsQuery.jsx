@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   ResultCard,
   ResultImage,
@@ -11,8 +11,11 @@ import {
   ResultIcon,
 } from "./Results.styles";
 
-export const ResultsQuery = ({ queryData }) => {
+export const ResultsQuery = () => {
   const navigate = useNavigate();
+
+  const { state } = useLocation();
+  const { queryData } = state;
 
   if (queryData) {
     return (

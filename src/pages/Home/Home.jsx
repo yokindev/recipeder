@@ -13,8 +13,6 @@ export const Home = () => {
   const user = auth.currentUser;
 
   const [data, setData] = useState(null);
-  const [queryData, setQueryData] = useState(null);
-  const [typeData, setTypeData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,23 +33,13 @@ export const Home = () => {
     return (
       <>
         <HomeTopBar>
-          <NavBar
-            user={user}
-            setQueryData={setQueryData}
-            setTypeData={setTypeData}
-          />
+          <NavBar user={user} />
         </HomeTopBar>
 
         <Routes>
           <Route path="/" element={<Results data={data} />} />
-          <Route
-            path="search/:query"
-            element={<ResultsQuery queryData={queryData} />}
-          />
-          <Route
-            path="type/:link"
-            element={<ResultsType typeData={typeData} />}
-          />
+          <Route path="search/:query" element={<ResultsQuery />} />
+          <Route path="type/:link" element={<ResultsType />} />
           <Route path="recipe/:name" element={<Recipe />} />
         </Routes>
         <Outlet />
