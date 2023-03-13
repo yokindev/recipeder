@@ -81,6 +81,12 @@ export const NavBar = ({ user, setQueryData, setTypeData }) => {
     }
   };
 
+  const handleType = (link) => {
+    fetchType(link);
+    setOpenMenu(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const fetchQuery = async (query) => {
     try {
       const res = await fetch(
@@ -117,9 +123,7 @@ export const NavBar = ({ user, setQueryData, setTypeData }) => {
                 <NavBarLink
                   key={index}
                   onClick={() => {
-                    setOpenMenu(false);
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                    fetchType(link);
+                    handleType(link);
                   }}
                 >
                   {link}

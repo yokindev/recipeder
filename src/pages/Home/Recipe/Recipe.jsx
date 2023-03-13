@@ -29,7 +29,7 @@ export const Recipe = () => {
 
   const { state } = useLocation();
   const { option } = state;
-  console.log(option);
+
   const { recipe } = option;
   const { ingredients, totalNutrients } = recipe;
 
