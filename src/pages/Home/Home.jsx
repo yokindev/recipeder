@@ -5,12 +5,16 @@ import { getAuth } from "firebase/auth";
 import { Outlet, Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Recipe } from "./Recipe/Recipe";
+import { ResultsQuery } from "./Results/ResultsQuery";
+import { ResultsType } from "./Results/ResultsType";
 
 export const Home = () => {
   const auth = getAuth();
   const user = auth.currentUser;
 
   const [data, setData] = useState(null);
+  const [queryData, setQueryData] = useState(null);
+  const [typeData, setTypeData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,13 +35,23 @@ export const Home = () => {
     return (
       <>
         <HomeTopBar>
-          <NavBar user={user} setData={setData} />
+          <NavBar
+            user={user}
+            setQueryData={setQueryData}
+            setTypeData={setTypeData}
+          />
         </HomeTopBar>
 
         <Routes>
           <Route path="/" element={<Results data={data} />} />
-          <Route path="search/:query" element={<Results data={data}/>} />
-          <Route path="type/:link" element={<Results data={data}/>} />
+          <Route
+            path="search/:query"
+            element={<ResultsQuery queryData={queryData} />}
+          />
+          <Route
+            path="type/:link"
+            element={<ResultsType typeData={typeData} />}
+          />
           <Route path="recipe/:name" element={<Recipe />} />
         </Routes>
         <Outlet />

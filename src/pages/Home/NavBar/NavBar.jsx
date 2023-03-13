@@ -21,7 +21,7 @@ import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 
-export const NavBar = ({ user, setData }) => {
+export const NavBar = ({ user, setQueryData, setTypeData }) => {
   const auth = getAuth();
   const navigate = useNavigate();
 
@@ -87,7 +87,7 @@ export const NavBar = ({ user, setData }) => {
         `${process.env.REACT_APP_API_URL}?type=public&q=${query}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`
       );
       const json = await res.json();
-      setData(json.hits);
+      setQueryData(json.hits);
     } catch (error) {
       console.log(error);
     }
@@ -99,7 +99,8 @@ export const NavBar = ({ user, setData }) => {
         `${process.env.REACT_APP_API_URL}?type=public&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}&cuisineType=${link}`
       );
       const json = await res.json();
-      setData(json.hits);
+      setTypeData(json.hits);
+      navigate(`type/${link}`);
     } catch (error) {
       console.log(error);
     }
@@ -119,7 +120,6 @@ export const NavBar = ({ user, setData }) => {
                     setOpenMenu(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
                     fetchType(link);
-                    navigate(`type/${link}`);
                   }}
                 >
                   {link}
